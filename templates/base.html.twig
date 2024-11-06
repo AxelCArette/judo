@@ -1,17 +1,104 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="{{ asset('build/vendor.css') }}">
+		<script src="{{ asset('build/vendor.js') }}" defer></script>
+		{% block stylesheets %}
+			{{ encore_entry_link_tags('app') }}
+		{% endblock %}
+		{% block javascripts %}
+			{{ encore_entry_script_tags('app') }}
+			{% block importmap %}
+				{{ importmap('app') }}
+			{% endblock %}
+		{% endblock %}
+	</head>
 
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+			<div class="container-fluid navbar-custom">
+				<a class="navbar-brand navbar-custom" href="{{ path('app_accueil') }}">Accueil</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse navbar-custom" id="navbarNav">
+					<ul class="navbar-nav">
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle navbar-custom" href="#" id="navbarDropdownAccount" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								<b class="navbar-custom">Mon compte</b>
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdownAccount">
+								<li>
+									<a class="dropdown-item" href="#">Inscription</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">Connexion</a>
+								</li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle navbar-custom " href="#" id="navbarDropdownClub" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								<b class="navbar-custom">Le club</b>
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdownClub">
+								<li>
+									<a class="dropdown-item" href="#">A propos</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">Histoire du club</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">Notre bureau</a>
+                  <li>
+                  <a class="dropdown-item" href="#">Nos sponsors</a></li>
+								</li>
+                  <li>
+                  <a class="dropdown-item" href="#">Nous contacter</a></li>
+								</li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle navbar-custom" href="#" id="navbarDropdownLife" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								<b class="navbar-custom">La vie du club</b>
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdownLife">
+								<li>
+									<a class="dropdown-item" href="#">Actualités</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">Galerie photos</a>
+								</li>
+							</ul>
+						</li>
+							<a class="nav-link navbar-custom " href="#" >
+								<b class="navbar-custom">Ressources</b>
+							</a>
+						</div>
+					</div>
+				</nav>
+
+				{% block body %}{% endblock %}
+
+			</body>
+			<footer class="bg-light text-center py-4">
+				<div class="container">
+					<p>&copy; 2024 Judo Club Isbergues. Tous droits réservés.</p>
+					<p>
+						<a href="{{ path('app_r_g_p_d') }}" class="text-decoration-none">Politique de confidentialité (RGPD)</a>
+						
+						<a href="https://www.facebook.com/JudoClubIsbergues" target="_blank" class="text-decoration-none">Suivez-nous sur Facebook</a>
+					</p>
+				</div>
+			</footer>
+		</html>
+	</body>
 </html>
