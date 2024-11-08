@@ -25,6 +25,9 @@ class Sponsors
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $liensiteweb = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?bool $publier = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -74,6 +77,18 @@ class Sponsors
     public function setLiensiteweb(?string $liensiteweb): static
     {
         $this->liensiteweb = $liensiteweb;
+
+        return $this;
+    }
+
+    public function isPublier(): ?bool
+    {
+        return $this->publier;
+    }
+
+    public function setPublier(?bool $publier): static
+    {
+        $this->publier = $publier;
 
         return $this;
     }

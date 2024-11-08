@@ -31,6 +31,9 @@ class Membres
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $club = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $roles = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -104,6 +107,18 @@ class Membres
     public function setClub(?string $club): static
     {
         $this->club = $club;
+
+        return $this;
+    }
+
+    public function getRoles(): ?string
+    {
+        return $this->roles;
+    }
+
+    public function setRoles(string $roles): static
+    {
+        $this->roles = $roles;
 
         return $this;
     }

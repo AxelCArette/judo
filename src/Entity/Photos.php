@@ -23,6 +23,9 @@ class Photos
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $date_ajout = null;
 
+    #[ORM\Column]
+    private ?bool $Publié = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +63,18 @@ class Photos
     public function setDateAjout(\DateTimeInterface $date_ajout): static
     {
         $this->date_ajout = $date_ajout;
+
+        return $this;
+    }
+
+    public function isPublié(): ?bool
+    {
+        return $this->Publié;
+    }
+
+    public function setPublié(bool $Publié): static
+    {
+        $this->Publié = $Publié;
 
         return $this;
     }
