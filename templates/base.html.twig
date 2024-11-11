@@ -27,7 +27,8 @@
 		<nav class="navbar navbar-expand-lg navbar-light navbar-custom">
 			<div class="container-fluid navbar-custom">
 				<a class="navbar-brand navbar-custom" href="{{ path('app_accueil') }}">
-				<img src="asset/img/logojudo.png" width="75" height="75" class="d-inline-block align-top" alt=""></a>
+					<img src="asset/img/logojudo.png" width="75" height="75" class="d-inline-block align-top" alt="">
+				</a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
@@ -38,16 +39,25 @@
 								<b class="navbar-custom">Mon compte</b>
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdownAccount">
-								<li>
-									<a class="dropdown-item" href="{{ path('app_inscription') }}">Inscription</a>
-								</li>
-								<li>
-									<a class="dropdown-item" href="#">Connexion</a>
-								</li>
+								{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+									<li>
+										<a class="dropdown-item" href="{{ path('app_logout') }}">Déconnexion</a>
+									</li>
+									<li>
+										<a class="dropdown-item" href="{{ path('app_utilisateur') }}">Mon compte</a>
+									</li>
+								{% else %}
+									<li>
+										<a class="dropdown-item" href="{{ path('app_login') }}">Connexion</a>
+									</li>
+									<li>
+										<a class="dropdown-item" href="{{ path('app_inscription') }}">Inscription</a>
+									</li>
+								{% endif %}
 							</ul>
 						</li>
 						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle navbar-custom " href="#" id="navbarDropdownClub" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							<a class="nav-link dropdown-toggle navbar-custom" href="#" id="navbarDropdownClub" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								<b class="navbar-custom">Le club</b>
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdownClub">
@@ -59,11 +69,12 @@
 								</li>
 								<li>
 									<a class="dropdown-item" href="#">Notre bureau</a>
-                  <li>
-                  <a class="dropdown-item" href="{{ path('app_sponsors') }}">Nos sponsors</a></li>
 								</li>
-                  <li>
-                  <a class="dropdown-item" href="#">Nous contacter</a></li>
+								<li>
+									<a class="dropdown-item" href="{{ path('app_sponsors') }}">Nos sponsors</a>
+								</li>
+								<li>
+									<a class="dropdown-item" href="#">Nous contacter</a>
 								</li>
 							</ul>
 						</li>
@@ -80,26 +91,24 @@
 								</li>
 							</ul>
 						</li>
-							<a class="nav-link navbar-custom " href="#" >
-								<b class="navbar-custom">Ressources</b>
-							</a>
-						</div>
-					</div>
-				</nav>
-
-				{% block body %}{% endblock %}
-
-			</body>
-			<footer class="bg-light text-center py-4">
-				<div class="container">
-					<p>&copy; 2024 Judo Club Isbergues. Tous droits réservés.</p>
-					<p>
-						<a href="{{ path('app_r_g_p_d') }}" class="text-decoration-none">Politique de confidentialité (RGPD)</a>
-						
-						<a href="https://www.facebook.com/JudoClubIsbergues" target="_blank" class="text-decoration-none">Suivez-nous sur Facebook</a>
-					</p>
+						<a class="nav-link navbar-custom" href="#">
+							<b class="navbar-custom">Ressources</b>
+						</a>
+					</ul>
 				</div>
-			</footer>
-		</html>
+			</div>
+		</nav>
+
+		{% block body %}{% endblock %}
 	</body>
+
+	<footer class="bg-light text-center py-4">
+		<div class="container">
+			<p>&copy; 2024 Judo Club Isbergues. Tous droits réservés.</p>
+			<p>
+				<a href="{{ path('app_r_g_p_d') }}" class="text-decoration-none">Politique de confidentialité (RGPD)</a>
+				<a href="https://www.facebook.com/JudoClubIsbergues" target="_blank" class="text-decoration-none">Suivez-nous sur Facebook</a>
+			</p>
+		</div>
+	</footer>
 </html>

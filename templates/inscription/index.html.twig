@@ -3,5 +3,20 @@
 {% block title %}Inscription | Judo Club Isbergues{% endblock %}
 
 {% block body %}
+    <h1>Inscription sur le site</h1>
+
+    {% for message in app.session.flashbag().get('error') %}
+        <div class="alert alert-danger">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    {% for message in app.session.flashbag().get('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    {{ form(form) }}
 
 {% endblock %}

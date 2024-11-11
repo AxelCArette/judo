@@ -1,12 +1,13 @@
 <?php
-
 namespace App\Entity;
 
 use App\Repository\MembresRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 #[ORM\Entity(repositoryClass: MembresRepository::class)]
-class Membres
+class Membres implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -31,8 +32,17 @@ class Membres
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $club = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $roles = null;
+    #[ORM\Column(type: 'json')]
+    private array $roles = [];
+
+    #[ORM\Column(length: 1000, nullable: true)]
+    private ?string $PhotosDeprofil = null;  // Modification ici pour être un tableau
+
+    public function __construct()
+    {
+        // Ajout d'un rôle par défaut
+        $this->roles[] = 'ROLE_USER'; // Ajout du rôle "ROLE_USER" par défaut
+    }
 
     public function getId(): ?int
     {
@@ -111,14 +121,46 @@ class Membres
         return $this;
     }
 
-    public function getRoles(): ?string
+    // Implémentation de la méthode de l'interface UserInterface
+    public function getUserIdentifier(): string
+    {
+        return $this->adressemail;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPassword(): string
+    {
+        return $this->motdepasse;
+    }
+
+    public function getRoles(): array
     {
         return $this->roles;
     }
 
-    public function setRoles(string $roles): static
+    public function setRoles(array $roles): static
     {
         $this->roles = $roles;
+
+        return $this;
+    }
+
+    // Implémentation de la méthode de l'interface PasswordAuthenticatedUserInterface
+    public function eraseCredentials(): void
+    {
+        // Si tu stockes des informations sensibles comme des mots de passe temporaires, efface-les ici
+    }
+
+    public function getPhotosDeprofil(): ?string
+    {
+        return $this->PhotosDeprofil;
+    }
+
+    public function setPhotosDeprofil(?string $PhotosDeprofil): static
+    {
+        $this->PhotosDeprofil = $PhotosDeprofil;
 
         return $this;
     }
