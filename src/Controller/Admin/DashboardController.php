@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Album;
 use App\Entity\Membres;
 use App\Entity\Gradecouleur;
 use App\Entity\Photos;
@@ -31,7 +32,8 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Membres', 'fas fa-list', Membres::class);
-        yield MenuItem::linkToCrud('Photos', 'fas fa-list', Photos::class);
         yield MenuItem::linkToCrud('Sponsors', 'fas fa-list', Sponsors::class);
+        yield MenuItem::linkToCrud('Album Photos', 'fas fa-list',Album::class);
+        yield MenuItem::linkToCrud('Photos', 'fas fa-list', Photos::class);
     }
 }

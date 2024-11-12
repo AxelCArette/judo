@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Albums{% endblock %}
+
+{% block body %}
+    <h1>Albums publiés</h1>
+
+    {% if albums is not empty %}
+        <ul>
+            {% for album in albums %}
+                <li>
+                    <a href="{{ path('app_album_photos', { id: album.id }) }}">
+                        {{ album.name }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Aucun album publié pour le moment.</p>
+    {% endif %}
+{% endblock %}

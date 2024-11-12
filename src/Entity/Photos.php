@@ -11,35 +11,40 @@ class Photos
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column]
+    #[ORM\Column(type: 'integer')]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $url = null;
+    #[ORM\Column(type: Types::JSON, nullable: true)]
+    private array $url = [];
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $description = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $date_ajout = null;
+    #[ORM\Column(type: Types::BOOLEAN)]
+    private ?bool $isPublished = null;
 
-    #[ORM\Column]
-    private ?bool $Publié = null;
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $dateAjout = null;
+
+    #[ORM\ManyToOne(targetEntity: Album::class, inversedBy: 'photos')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Album $album = null;
+
+    // GETTERS ET SETTERS
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getUrl(): ?string
+    public function getUrl(): ?array
     {
         return $this->url;
     }
 
-    public function setUrl(string $url): static
+    public function setUrl(array $url): self
     {
         $this->url = $url;
-
         return $this;
     }
 
@@ -48,34 +53,42 @@ class Photos
         return $this->description;
     }
 
-    public function setDescription(?string $description): static
+    public function setDescription(?string $description): self
     {
         $this->description = $description;
+        return $this;
+    }
 
+    public function getIsPublished(): ?bool
+    {
+        return $this->isPublished;
+    }
+
+    public function setIsPublished(bool $isPublished): self
+    {
+        $this->isPublished = $isPublished;
         return $this;
     }
 
     public function getDateAjout(): ?\DateTimeInterface
     {
-        return $this->date_ajout;
+        return $this->dateAjout;
     }
 
-    public function setDateAjout(\DateTimeInterface $date_ajout): static
+    public function setDateAjout(?\DateTimeInterface $dateAjout): self
     {
-        $this->date_ajout = $date_ajout;
-
+        $this->dateAjout = $dateAjout;
         return $this;
     }
 
-    public function isPublié(): ?bool
+    public function getAlbum(): ?Album
     {
-        return $this->Publié;
+        return $this->album;
     }
 
-    public function setPublié(bool $Publié): static
+    public function setAlbum(?Album $album): self
     {
-        $this->Publié = $Publié;
-
+        $this->album = $album;
         return $this;
     }
 }

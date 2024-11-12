@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20241111105820 extends AbstractMigration
+final class Version20241112131831 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -20,12 +20,12 @@ final class Version20241111105820 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE membres CHANGE roles roles JSON NOT NULL');
+        $this->addSql('ALTER TABLE album ADD created_at DATETIME NOT NULL');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE membres CHANGE roles roles VARCHAR(255) NOT NULL');
+        $this->addSql('ALTER TABLE album DROP created_at');
     }
 }
