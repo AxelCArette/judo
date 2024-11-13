@@ -2,6 +2,7 @@
 namespace App\Entity;
 
 use App\Repository\MembresRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -36,7 +37,10 @@ class Membres implements UserInterface, PasswordAuthenticatedUserInterface
     private array $roles = [];
 
     #[ORM\Column(length: 1000, nullable: true)]
-    private ?string $PhotosDeprofil = null;  // Modification ici pour être un tableau
+    private ?string $PhotosDeprofil = null;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $description = null;  // Modification ici pour être un tableau
 
     public function __construct()
     {
@@ -161,6 +165,18 @@ class Membres implements UserInterface, PasswordAuthenticatedUserInterface
     public function setPhotosDeprofil(?string $PhotosDeprofil): static
     {
         $this->PhotosDeprofil = $PhotosDeprofil;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): static
+    {
+        $this->description = $description;
 
         return $this;
     }

@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\SponsorsRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: SponsorsRepository::class)]
 class Sponsors
@@ -19,7 +20,9 @@ class Sponsors
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $logo_url = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    // Modifié pour permettre une longueur illimitée pour la description
+    #[ORM\Column(type: "text", nullable: true)]
+    #[Assert\Length(max: 255, maxMessage: "La description ne peut pas dépasser 255 caractères.")]
     private ?string $description = null;
 
     #[ORM\Column(length: 255, nullable: true)]

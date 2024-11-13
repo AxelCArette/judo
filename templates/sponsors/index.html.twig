@@ -3,22 +3,27 @@
 {% block title %}Nos sponsors | Judo Club Isbergues{% endblock %}
 
 {% block body %}
-<h1>Nos Sponsors</h1>
+    <h1 class="page-title">Nos Sponsors</h1>
 
-<div class="sponsors-list">
-    {% for sponsor in sponsors %}
-        <div class="sponsor">
-            <h2>{{ sponsor.nomSponsors }}</h2>
-            {% if sponsor.logoUrl %}
-                <img src="{{ sponsor.logoUrl }}" alt="Logo de {{ sponsor.nomSponsors }}">
-            {% endif %}
-            <p>{{ sponsor.description }}</p>
-            {% if sponsor.liensiteweb %}
-                <a href="{{ sponsor.liensiteweb }}" target="_blank">Visiter le site web</a>
-            {% endif %}
-        </div>
-    {% else %}
-        <p>Aucun sponsor trouvé.</p>
-    {% endfor %}
-</div>
+    <div class="sponsors-list">
+        {% for sponsor in sponsors %}
+            <div class="sponsor-card">
+                <h2 class="sponsor-name">{{ sponsor.nomSponsors }}</h2>
+                
+                {% if sponsor.logoUrl %}
+                    <div class="sponsor-logo">
+                        <img src="{{ sponsor.logoUrl }}" alt="Logo de {{ sponsor.nomSponsors }}">
+                    </div>
+                {% endif %}
+                
+                <p class="sponsor-description">{{ sponsor.description }}</p>
+                
+                {% if sponsor.liensiteweb %}
+                    <a href="{{ sponsor.liensiteweb }}" class="sponsor-link" target="_blank">Visiter le site web</a>
+                {% endif %}
+            </div>
+        {% else %}
+            <p class="no-sponsor">Aucun sponsor trouvé.</p>
+        {% endfor %}
+    </div>
 {% endblock %}

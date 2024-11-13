@@ -23,6 +23,7 @@ class MembresCrudController extends AbstractCrudController
             TextField::new('adressemail'),
             TextField::new('grade'),
             TextField::new('club'),
+            TextField::new('Description')
         ];
     }
     
