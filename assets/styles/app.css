@@ -1,7 +1,13 @@
 * {
-    background-color: white;
     margin: 0;
     padding: 0;
+}
+body {
+    background-image: url('/asset/img/fondjudo01.jpg');
+    background-position: center; /* Centrer l'image */
+    background-attachment: fixed;/* Fixe l'image lorsque l'on fait défiler la page */
+    background-repeat: no-repeat; /* Empêche la répétition de l'image */
+    
 }
 
 .roboto-thin {
@@ -261,14 +267,6 @@
 
 }
 
-/* Centrer et aligner le grade */
-.profil-grade {
-    font-size: 24px; /* Taille du texte pour le grade */
-    font-weight: bold;
-    text-align: center;
-    color: black;
-    margin-bottom: 10px;
-}
 
 /* Style pour les informations du profil */
 .profil-info {
@@ -278,9 +276,13 @@
 
 .profil-name {
     font-size: 30px; /* Plus grand pour le nom */
-    font-weight: bold;
+    background: linear-gradient( #f0f0f0, #CBCBCB);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5); /* Ombre subtile */
+    padding: 5px 10px; /* Ajuste l'espacement autour du texte */
+    border-radius: 5px; /* Coins arrondis pour un effet esthétique */
     text-align: center;
-    color: black; /* Texte en noir */
+    color: black; /* Couleur du texte */
+    font-weight: bold; /* Style en gras */
 }
 
 .profil-description {
@@ -360,10 +362,14 @@
 
 /* Détails du grade et description */
 .profil-grade {
-    font-size: 24px;
-    font-weight: bold;
-    color: black;
-    margin-bottom: 10px;
+    font-size: 20px; /* Plus grand pour le nom */
+    background: linear-gradient( #f0f0f0, #CBCBCB);
+    padding: 5px 10px; /* Ajuste l'espacement autour du texte */
+    border-radius: 5px; /* Coins arrondis pour un effet esthétique */
+    text-align: center;
+    color: black; /* Couleur du texte */
+    font-weight: bold; /* Style en gras */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ombre subtile */
 }
 
 .profil-description {
@@ -538,4 +544,72 @@ input.form-control:focus, select.form-control:focus {
 
 [data-aos].aos-animate {
     opacity: 1;
+}
+.fondbanniere {
+    background-image: url("{{ asset('asset/img/fondjudo.jpg') }}");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+.rounded-background {
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.privacy-policy {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9; /* Fond doux pour le conteneur */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.privacy-policy h1 {
+    color: #2b3a42; /* Couleur d'accentuation pour le titre principal */
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.privacy-policy h2 {
+    color: #4a6572; /* Couleur subtile pour les sous-titres */
+    font-size: 1.5rem;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    border-left: 4px solid #2b3a42; /* Barre à gauche pour accentuer les sections */
+    padding-left: 10px;
+}
+
+.privacy-policy p {
+    margin-bottom: 1em;
+}
+
+.privacy-policy ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 1.5em;
+}
+
+.privacy-policy ul li {
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 0.8em;
+}
+
+.privacy-policy ul li::before {
+    content: '•';
+    color: #2b3a42; /* Couleur d'accentuation pour les puces */
+    position: absolute;
+    left: 0;
+}
+
+.privacy-policy strong {
+    color: #2b3a42;
+}
+
+.privacy-policy main {
+    padding: 20px;
 }

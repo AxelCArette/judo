@@ -7,16 +7,16 @@
 
     <div class="sponsors-list">
         {% for sponsor in sponsors %}
-            <div class="sponsor-card">
+            <div class="sponsor-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
                 <h2 class="sponsor-name">{{ sponsor.nomSponsors }}</h2>
                 
                 {% if sponsor.logoUrl %}
                     <div class="sponsor-logo">
-                        <img src="{{ sponsor.logoUrl }}" alt="Logo de {{ sponsor.nomSponsors }}">
+                        <img src="{{ asset(sponsor.logoUrl) }}" alt="Logo de {{ sponsor.nomSponsors }}">
                     </div>
                 {% endif %}
                 
-                <p class="sponsor-description">{{ sponsor.description }}</p>
+                <div class="sponsor-description">{{ sponsor.description | raw }}</div>
                 
                 {% if sponsor.liensiteweb %}
                     <a href="{{ sponsor.liensiteweb }}" class="sponsor-link" target="_blank">Visiter le site web</a>

@@ -1,7 +1,5 @@
 <?php
 
-// src/Controller/UtilisateurController.php
-
 namespace App\Controller;
 
 use App\Form\PhotoDeProfilType;

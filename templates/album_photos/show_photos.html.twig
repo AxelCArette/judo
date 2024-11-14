@@ -3,32 +3,30 @@
 {% block title %}Photos de {{ album.name }}{% endblock %}
 
 {% block body %}
-    <h1>Photos de l'album : {{ album.name }}</h1>
+    <div class="container mt-4">
+        <h1 class="text-center mb-4">Photos de l'album : {{ album.name }}</h1>
 
-    {% if photos is not empty %}
-        <div id="photoCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
+        {% if photos is not empty %}
+            <div class="row">
                 {% for photo in photos %}
                     {% for url in photo.url %}
-                        <div class="carousel-item {% if loop.first %}active{% endif %}">
-                            <img src="{{ asset('asset/img/photoChloe/' ~ url) }}" class="d-block w-100 carousel-photo" alt="{{ photo.description }}">
-                            <div class="carousel-caption d-none d-md-block">
-                                <p>{{ photo.description }}</p>
+                        <div class="col-md-2 mb-4 d-flex justify-content-center" data-aos="fade-up">
+                            <div class="photo-wrapper">
+                                <img src="{{ asset('asset/img/photoChloe/' ~ url) }}" class="img-fluid rounded shadow" alt="{{ photo.description }}">
+                                {% if photo.description %}
+                                    <p class="text-center mt-2 text-muted">{{ photo.description }}</p>
+                                {% endif %}
                             </div>
                         </div>
+                        
+                        {% if loop.index % 5 == 0 %}
+                            </div><div class="row">
+                        {% endif %}
                     {% endfor %}
                 {% endfor %}
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#photoCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#photoCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-    {% else %}
-        <p>Aucune photo publiée disponible pour cet album.</p>
-    {% endif %}
+        {% else %}
+            <p class="text-center text-muted">Aucune photo publiée disponible pour cet album.</p>
+        {% endif %}
+    </div>
 {% endblock %}

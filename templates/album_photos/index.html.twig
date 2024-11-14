@@ -3,19 +3,26 @@
 {% block title %}Albums{% endblock %}
 
 {% block body %}
-    <h1>Albums publiés</h1>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4" data-aos="fade-down">Albums publiés</h1>
 
-    {% if albums is not empty %}
-        <ul>
-            {% for album in albums %}
-                <li>
-                    <a href="{{ path('app_album_photos', { id: album.id }) }}">
-                        {{ album.name }}
-                    </a>
-                </li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>Aucun album publié pour le moment.</p>
-    {% endif %}
+        {% if albums is not empty %}
+            <div class="row">
+                {% for album in albums %}
+                    <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title text-center">{{ album.name }}</h5>
+                                <a href="{{ path('app_album_photos', { id: album.id }) }}" class="btn btn-primary mt-auto">
+                                    Voir l'album
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-center text-muted" data-aos="fade-in">Aucun album publié pour le moment.</p>
+        {% endif %}
+    </div>
 {% endblock %}

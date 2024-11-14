@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Le Bureau
+{% endblock %}
+
+{% block body %}
+	<div class="container mt-5">
+		<h2 class="text-center mb-4">Notre Bureau</h2>
+		<div class="row justify-content-center">
+			<!-- Carte Président -->
+			<div class="col-md-4 mb-4" data-aos="fade-up" data-aos-duration="1000">
+				<div class="card">
+					<img src="{{ asset('asset/img/imgbureau/president.png') }}" class="card-img-top" alt="Président">
+					<div class="card-body">
+						<h5 class="card-title">Président</h5>
+						<p class="card-text">Pascale Couvreur<br>
+							- Description brève de ses responsabilités et de son rôle dans le club.</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Carte Trésorier -->
+			<div class="col-md-4 mb-4" data-aos="fade-up" data-aos-duration="1200">
+				<div class="card">
+					<img src="{{ asset('asset/img/imgbureau/tresorier.png') }}" class="card-img-top" alt="Trésorier">
+					<div class="card-body">
+						<h5 class="card-title">Trésorier</h5>
+						<p class="card-text">Gregory Dethilloy
+							<br>
+							- Description brève de ses responsabilités liées à la gestion financière du club.</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Carte Entraîneur -->
+			<div class="col-md-4 mb-4" data-aos="fade-up" data-aos-duration="1400">
+				<div class="card">
+					<img src="{{ asset('asset/img/imgbureau/entraineur.jpg') }}" class="card-img-top" alt="Entraîneur">
+					<div class="card-body">
+						<h5 class="card-title">Entraîneur</h5>
+						<p class="card-text">Philippe Coubronne
+							<br>- Description brève de ses responsabilités concernant l'enseignement et l'accompagnement des membres.</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Carte Secrétaire -->
+			<div class="col-md-4 mb-4" data-aos="fade-up" data-aos-duration="1600">
+				<div class="card">
+					<img src="{{ asset('images/secretary.jpg') }}" class="card-img-top" alt="Secrétaire">
+					<div class="card-body">
+						<h5 class="card-title">Secrétaire</h5>
+						<p class="card-text">Pascale Couvreur-Bizet
+							<br>
+							- Description brève de ses responsabilités administratives et organisationnelles.</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Carte Photographe -->
+			<div class="col-md-4 mb-4" data-aos="fade-up" data-aos-duration="1800">
+				<div class="card">
+					<img src="{{ asset('asset/img/imgbureau/photographe.jpg') }}" class="card-img-top" alt="Photographe">
+					<div class="card-body">
+						<h5 class="card-title">Photographe</h5>
+						<p class="card-text">Chloé Coubronne
+							<br>
+							- Description brève de son rôle dans la captation des moments clés du club.</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Carte Webdesigner -->
+			<div class="col-md-4 mb-4" data-aos="fade-up" data-aos-duration="2000">
+				<div class="card">
+					<img src="{{ asset('asset/img/imgbureau/devweb.png') }}" class="card-img-top" alt="Webdesigner">
+					<div class="card-body">
+						<h5 class="card-title">Développeur web</h5>
+						<p class="card-text">Carette Axel
+							<br>
+							- En charge de la conception et du développement du site web du club, assurant sa fonctionnalité, son design et son accessibilité.
+							<br>
+							Il veille à l'optimisation de l'expérience utilisateur et à la gestion de l'image du club en ligne, tout en maintenant une communication fluide et moderne avec les membres.</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+{% endblock %}

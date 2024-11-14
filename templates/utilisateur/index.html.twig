@@ -5,9 +5,36 @@
 {% block body %}
 <div class="profil-container container mt-4">
     <div class="row justify-content-center">
-        <!-- Menu de mise à jour du profil à gauche -->
-        <div class="col-12 col-md-4 d-flex flex-column" data-aos="fade-left" data-aos-duration="800" data-aos-delay="400">
-            <div class="profil-update-section">
+        <!-- Carte de profil -->
+        <div class="col-12 col-md-6 mb-4" data-aos="fade-up" data-aos-duration="800">
+            <div class="profil-card {{ grade|replace({' ': ''}) }}">
+                <h3 class="profil-name">{{ prenom }}</h3>
+                
+                <div class="profil-photo" data-aos="zoom-in" data-aos-duration="800">
+                    {% if photoProfil %}
+                        <img src="{{ asset(photoProfil) }}" alt="Photo de profil" class="profil-img" />
+                    {% else %}
+                        <p>Aucune photo de profil</p>
+                    {% endif %}
+                </div>
+
+                <div class="profil-info" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                    <div class="profil-grade">
+                        {% if grade %}
+                            <span class="grade">Grade {{ grade }}</span>
+                        {% endif %}
+                    </div>
+
+                    {% if description %}
+                        <p class="profil-description">{{ description }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu de mise à jour du profil en dessous de la carte -->
+        <div class="col-12 col-md-8 d-flex flex-column" data-aos="fade-left" data-aos-duration="800" data-aos-delay="400">
+            <div class="profil-update-section mt-4">
                 <h3>Mettre à jour votre profil</h3>
 
                 <!-- Menu déroulant avec deux sections (photo et description) -->
@@ -41,44 +68,16 @@
                                 <div class="form-group">
                                     {{ form_row(form.description, {'attr': {'class': 'form-control'}}) }}
                                 </div>
-                            
-                                {{ form_end(form) }}
                             </div>
-                            
                         </div>
-                            <button type="submit" class="btn btn-primary mt-3">Mettre à jour</button>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <!-- Carte de profil à droite -->
-        <div class="col-12 col-md-6 mb-4" data-aos="fade-up" data-aos-duration="800">
-            <div class="profil-card {{ grade|replace({' ': ''}) }}">
-                <h3 class="profil-name">{{ prenom }}</h3>
-                
-                <div class="profil-photo" data-aos="zoom-in" data-aos-duration="800">
-                    {% if photoProfil %}
-                        <img src="{{ asset(photoProfil) }}" alt="Photo de profil" class="profil-img" />
-                    {% else %}
-                        <p>Aucune photo de profil</p>
-                    {% endif %}
-                </div>
-
-                <div class="profil-info" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-                    <div class="profil-grade">
-                        {% if grade %}
-                            <span class="grade">Grade {{ grade }}</span>
-                        {% endif %}
-                    </div>
-
-                    {% if description %}
-                        <p class="profil-description">{{ description }}</p>
-                    {% endif %}
-                </div>
+                <!-- Bouton de soumission, en dehors de l'accordéon -->
+                <button type="submit" class="btn btn-primary mt-3">Mettre à jour</button>
+                {{ form_end(form) }}
             </div>
         </div>
     </div>
 </div>
-
 {% endblock %}

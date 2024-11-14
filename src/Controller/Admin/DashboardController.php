@@ -3,8 +3,8 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Album;
+use App\Entity\Contact;
 use App\Entity\Membres;
-use App\Entity\Gradecouleur;
 use App\Entity\Photos;
 use App\Entity\Sponsors;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -35,5 +35,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Sponsors', 'fas fa-list', Sponsors::class);
         yield MenuItem::linkToCrud('Album Photos', 'fas fa-list',Album::class);
         yield MenuItem::linkToCrud('Photos', 'fas fa-list', Photos::class);
+        yield MenuItem::linkToCrud('Formulaire de contact', 'fas fa-list', Contact::class);
     }
 }

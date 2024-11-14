@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contactez-nous{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+    <h1 class="mb-4 text-center">Contactez-nous</h1>
+
+    {% if app.session.flashBag.has('success') %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ app.session.flashBag.get('success')[0] }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
+
+    <!-- Liens vers les réseaux sociaux -->
+    <div class="d-flex justify-content-center mb-4">
+        <a href="https://m.me/judoclubisbergues" target="_blank" class="btn btn-primary me-2">
+            <i class="fab fa-facebook-messenger"></i> Messenger
+        </a>
+        <a href="https://www.facebook.com/judoclubisbergues?locale=fr_FR" target="_blank" class="btn btn-secondary">
+            <i class="fab fa-facebook"></i> Facebook
+        </a>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h3 class="card-title mb-4 text-center">Formulaire de contact</h3>
+                    {{ form_start(form) }}
+                    
+                    <div class="mb-3">
+                        {{ form_row(form.NomDeLaPersonne, {'attr': {'class': 'form-control', 'placeholder': 'Nom'}}) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form_row(form.prenomdelapersonne, {'attr': {'class': 'form-control', 'placeholder': 'Prénom'}}) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form_row(form.adressemail, {'attr': {'class': 'form-control', 'placeholder': 'Adresse e-mail'}}) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form_row(form.numerodetelephonedelapersonne, {'attr': {'class': 'form-control', 'placeholder': 'Numéro de téléphone'}}) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form_row(form.textedelapersonne, {'attr': {'class': 'form-control', 'placeholder': 'Votre message'}}) }}
+                    </div>
+
+                    <button type="submit" class="btn btn-success w-100">Envoyer</button>
+                    
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

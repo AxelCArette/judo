@@ -13,7 +13,6 @@
 		<link
 		rel="stylesheet" href="{{ asset('build/vendor.css') }}">
 
-		<!-- Lien vers le CSS d'AOS -->
 		<link href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 		<script src="{{ asset('build/vendor.js') }}" defer></script>
@@ -30,6 +29,7 @@
 	</head>
 
 	<body>
+	
 		<nav class="navbar navbar-expand-lg navbar-light navbar-custom">
 			<div class="container-fluid navbar-custom">
 				<a class="navbar-brand navbar-custom" href="{{ path('app_accueil') }}">
@@ -46,11 +46,12 @@
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdownAccount">
 								{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-									<li>
-										<a class="dropdown-item" href="{{ path('app_logout') }}">Déconnexion</a>
-									</li>
+									
 									<li>
 										<a class="dropdown-item" href="{{ path('app_utilisateur') }}">Mon compte</a>
+									</li>
+									<li>
+										<a class="dropdown-item" href="{{ path('app_logout') }}">Déconnexion</a>
 									</li>
 								{% else %}
 									<li>
@@ -68,29 +69,30 @@
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdownClub">
 								<li>
-									<a class="dropdown-item" href="#">A propos</a>
+									<a class="dropdown-item" href="{{ path('app_horaire_et_tarif') }}">A propos</a>
 								</li>
 								<li>
-									<a class="dropdown-item" href="#">Histoire du club</a>
+									<a class="dropdown-item" href="{{ path('app_histoire_duclub') }}">Histoire du club</a>
 								</li>
 								<li>
-									<a class="dropdown-item" href="#">Notre bureau</a>
+									<a class="dropdown-item" href="{{ path('app_notre_bureau') }}">Notre bureau</a>
 								</li>
 								<li>
 									<a class="dropdown-item" href="{{ path('app_sponsors') }}">Nos sponsors</a>
 								</li>
-								<li>
-									<a class="dropdown-item" href="#">Nous contacter</a>
-								</li>
+							
 							</ul>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle navbar-custom main-link" href="#" id="navbarDropdownLife" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								<b class="navbar-custom">La vie du club</b>
 							</a>
+								
+									
+								
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdownLife">
 								<li>
-									<a class="dropdown-item" href="#">Actualités</a>
+									<a class="dropdown-item" href="{{ path('app_actualites') }}">Actualités</a>
 								</li>
 								<li>
 									<a class="dropdown-item" href="{{ path('app_albums') }}">Galerie photos</a>
@@ -98,14 +100,21 @@
 							</ul>
 						</li>
 						<a class="nav-link navbar-custom main-link" href="#">
-							<b class="navbar-custom">Ressources</b>
+							<b class="navbar-custom">Ressources</b></a>
+						<a class="nav-link navbar-custom main-link" href="{{ path('app_contact') }}">
+							<b class="navbar-custom">Nous contacter</b></a>
+						<a class="nav-link navbar-custom main-link" href="{{ path('app_horaire_et_tarif') }}">
+							<b class="navbar-custom">Horaires et tarif</b></a>
 						</a>
 					</ul>
 				</div>
 			</div>
 		</nav>
 
-		{% block body %}{% endblock %}
+		{% block body %}
+	
+
+		{% endblock %}
 
 		<!-- Script d'AOS -->
 		<script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
