@@ -1,7 +1,32 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ActualitesController!{% endblock %}
+{% block title %}Actualités
+{% endblock %}
 
 {% block body %}
-Proute
+	<div class="container mt-5">
+		<h1 class="text-center mb-4" data-aos="fade-down">Actualités</h1>
+
+		{% if actualites is not empty %}
+			<div class="row">
+				{% for actualite in actualites %}
+					<div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}">
+						<div class="card h-100 shadow-sm">
+							{% if actualite.image %}
+								<img src="{{ asset('public/asset/img/imgactualite' ~ actualite.image) }}" class="card-img-top" alt="{{ actualite.Titre }}">
+							{% endif %}
+							<div class="card-body d-flex flex-column">
+								<h5 class="card-title">{{ actualite.Titre }}</h5>
+								<p class="card-text">{{ actualite.Contenu | slice(0, 150) }}...</p>
+								<p class="text-muted">{{ actualite.datePublication|date('d/m/Y') }}</p>
+								<a href="{{ path('app_actualite_detail', {'id': actualite.id}) }}" class="btn btn-primary mt-auto">Lire plus</a>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		{% else %}
+			<p class="text-center text-muted">Aucune actualité publiée pour le moment.</p>
+		{% endif %}
+	</div>
 {% endblock %}

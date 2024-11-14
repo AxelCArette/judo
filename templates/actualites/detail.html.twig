@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ actualite.Titre }}{% endblock %}
+
+{% block body %}
+    <div class="container mt-5" data-aos="fade-up" data-aos-duration="1000">
+        <h1 class="text-center mb-4" data-aos="fade-down" data-aos-duration="1000">{{ actualite.Titre }}</h1>
+        
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="card shadow-sm" data-aos="zoom-in" data-aos-duration="1000">
+                    {% if actualite.image %}
+                        <img src="{{ asset('uploads/images/' ~ actualite.image) }}" class="card-img-top" alt="{{ actualite.Titre }}" data-aos="fade-up" data-aos-duration="800">
+                    {% endif %}
+                    <div class="card-body">
+                        <p class="text-muted" data-aos="fade-right" data-aos-duration="800">{{ actualite.datePublication|date('d/m/Y') }}</p>
+                        <div class="card-text" data-aos="fade-left" data-aos-duration="1000">
+                            <p>{{ actualite.Contenu }}</p>
+                        </div>
+                    </div>
+                </div>
+                <a href="{{ path('app_actualites') }}" class="btn btn-secondary mt-4" data-aos="fade-up" data-aos-duration="1000">Retour aux actualités</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

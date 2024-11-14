@@ -30,6 +30,9 @@ class Album
     #[ORM\Column(nullable: true)]
     private ?bool $Publier = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $PhotosDeCouverture = null;
+
     public function __construct()
     {
         $this->photos = new ArrayCollection();
@@ -115,6 +118,18 @@ class Album
     public function setPublier(?bool $Publier): static
     {
         $this->Publier = $Publier;
+
+        return $this;
+    }
+
+    public function getPhotosDeCouverture(): ?string
+    {
+        return $this->PhotosDeCouverture;
+    }
+
+    public function setPhotosDeCouverture(?string $PhotosDeCouverture): static
+    {
+        $this->PhotosDeCouverture = $PhotosDeCouverture;
 
         return $this;
     }

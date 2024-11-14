@@ -13,6 +13,13 @@
                         <div class="card h-100 shadow-sm">
                             <div class="card-body d-flex flex-column">
                                 <h5 class="card-title text-center">{{ album.name }}</h5>
+                                {% if album.PhotosDeCouverture %}
+                                    <img src="{{ asset('asset/img/photodecouverture/' ~ album.PhotosDeCouverture) }}" alt="Photo de couverture" class="card-img-top" />
+                                {% else %}
+                                    <img src="{{ asset('path/to/default/cover.jpg') }}" alt="Photo de couverture par défaut" class="card-img-top" />
+                                {% endif %}
+                                <br>
+                                
                                 <a href="{{ path('app_album_photos', { id: album.id }) }}" class="btn btn-primary mt-auto">
                                     Voir l'album
                                 </a>

@@ -9,6 +9,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField; // Ajout de l'ImageField pour l'upload
 
 class AlbumCrudController extends AbstractCrudController
 {
@@ -27,6 +28,14 @@ class AlbumCrudController extends AbstractCrudController
                 ->setLabel('Date de création')
                 ->setFormTypeOptions(['disabled' => true]), // Optionnel, pour afficher uniquement
             BooleanField::new('Publier')->setLabel('Publié ?'), // Nouveau champ pour gérer la publication
+
+            // Ajout du champ ImageField pour l'upload de la photo de couverture
+            ImageField::new('PhotosDeCouverture')
+                ->setBasePath('/asset/img/photodecouverture') // Le chemin où les images seront accessibles
+                ->setUploadDir('public/asset/img/photodecouverture') // Dossier où les images seront enregistrées
+                ->setUploadedFileNamePattern('[randomhash].[extension]') // Nom du fichier aléatoire
+                ->setRequired(false) // Facultatif, si tu veux que ce soit obligatoire, mets à true
+                ->setLabel('Photo de couverture'), // Label pour l'upload
         ];
     }
 }
