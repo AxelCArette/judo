@@ -45,15 +45,9 @@ class Membres implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
 
-    // Relation One-to-Many avec l'entité Post
-    #[ORM\OneToMany(mappedBy: 'membre', targetEntity: Post::class)]
-    private Collection $posts;
 
     public function __construct()
     {
-        // Initialiser la collection de posts
-        $this->posts = new ArrayCollection();
-        
         // Ajout d'un rôle par défaut
         $this->roles[] = 'ROLE_USER'; // Ajout du rôle "ROLE_USER" par défaut
     }
@@ -182,31 +176,4 @@ class Membres implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    // Méthodes pour accéder aux posts d'un membre
-    public function getPosts(): Collection
-    {
-        return $this->posts;
-    }
-
-    public function addPost(Post $post): static
-    {
-        if (!$this->posts->contains($post)) {
-            $this->posts[] = $post;
-            $post->setMembre($this); // Associe le membre au post
-        }
-
-        return $this;
-    }
-
-    public function removePost(Post $post): static
-    {
-        if ($this->posts->removeElement($post)) {
-            // Si l'élément est supprimé, on délie également le post du membre
-            if ($post->getMembre() === $this) {
-                $post->setMembre(null);
-            }
-        }
-
-        return $this;
-    }
 }
