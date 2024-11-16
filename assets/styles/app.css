@@ -3,11 +3,11 @@
     padding: 0;
 }
 body {
-    background-image: url('/asset/img/fondjudo01.jpg');
+    background-image: url('/asset/img/fondjudo.jpg');
     background-position: center; /* Centrer l'image */
-    background-attachment: fixed;/* Fixe l'image lorsque l'on fait défiler la page */
+    background-size: cover; /* Redimensionner l'image pour couvrir toute la zone */
+    background-attachment: fixed; /* Fixe l'image lorsque l'on fait défiler la page */
     background-repeat: no-repeat; /* Empêche la répétition de l'image */
-    
 }
 
 .roboto-thin {
@@ -133,6 +133,10 @@ body {
 .profil-card h3 {
     border-radius:15px;
 }
+.hidden {
+    display: none !important;
+}
+
 
 /* Animation du mouvement circulaire des couleurs de fond */
 @keyframes gradientMove {
@@ -160,13 +164,11 @@ body {
 
 .profil-card.Découverte {
     background: linear-gradient(45deg, #c1c1c1, #f8f8f8, #c1c1c1, #f8f8f8);
-    background-size: 300% 300%;
-    animation: gradientMove 6s ease infinite;
 }
 
-/* Ajout des autres styles de fond pour les grades */
+
 .profil-card.Blanc {
-    background: linear-gradient(45deg, #ffffff, #e0e0e0, #ffffff, #e0e0e0);
+    background: linear-gradient(45deg, #c1c1c1, #f8f8f8, #c1c1c1, #f8f8f8);
     background-size: 300% 300%;
     animation: gradientMove 6s ease infinite;
 }
@@ -178,7 +180,7 @@ body {
 }
 
 .profil-card.JauneOrange {
-    background: linear-gradient(45deg, #ffb300, #ff9800, #ffb300, #ff9800);
+    background: linear-gradient(45deg, #ffe600, #ff6200, #ffb300, #ff9800);
     background-size: 300% 300%;
     animation: gradientMove 6s ease infinite;
 }
@@ -196,19 +198,19 @@ body {
 }
 
 .profil-card.Verte {
-    background: linear-gradient(45deg, #388e3c, #43a047, #388e3c, #43a047);
+    background: linear-gradient(45deg, #28b52f, #41ff47, #388e3c, #43a047);
     background-size: 300% 300%;
     animation: gradientMove 6s ease infinite;
 }
 
 .profil-card.Vertebleu {
-    background: linear-gradient(45deg, #009688, #4caf50, #009688, #4caf50);
+    background: linear-gradient(45deg, #00ffe5, #4caf50, #009688, #4caf50);
     background-size: 300% 300%;
     animation: gradientMove 6s ease infinite;
 }
 
 .profil-card.Bleu {
-    background: linear-gradient(45deg, #2196f3, #42a5f5, #2196f3, #42a5f5);
+    background: linear-gradient(45deg, #2196f3, #005091, #2196f3, #42a5f5);
     background-size: 300% 300%;
     animation: gradientMove 6s ease infinite;
 }
@@ -220,7 +222,7 @@ body {
 }
 
 .profil-card.Marron {
-    background: linear-gradient(45deg, #6d4c41, #5a3f3f, #6d4c41, #170f0c);
+    background: linear-gradient(45deg, #ff4101, #6b2f2f, #a95b41, #170f0c);
     background-size: 300% 300%; /* Augmente la taille du fond pour accentuer le mouvement de l'animation */
     animation: gradientMove 6s ease infinite; /* Animation plus rapide pour accentuer l'effet */
 }
@@ -264,11 +266,8 @@ body {
 /* Style pour la photo de profil */
 .profil-photo img {
     width: 100%;
-
 }
 
-
-/* Style pour les informations du profil */
 .profil-info {
     margin-top: 15px;
     text-align: center; /* Alignement du texte de la description */
@@ -360,7 +359,6 @@ body {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Détails du grade et description */
 .profil-grade {
     font-size: 20px; /* Plus grand pour le nom */
     background: linear-gradient( #f0f0f0, #CBCBCB);
@@ -371,14 +369,11 @@ body {
     font-weight: bold; /* Style en gras */
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ombre subtile */
 }
-
 .profil-description {
     font-size: 16px;
     color: black;
 }
 
-
-/* Mise à jour du profil */
 .profil-update-section {
     margin-top: 30px;
     padding: 20px;
@@ -412,7 +407,6 @@ body {
     background-color: #1976d2;
 }
 
-/* Exemple d'ajout pour améliorer l'interaction */
 input.form-control:focus, select.form-control:focus {
     border-color: #007bff;
     box-shadow: 0 0 0 0.25rem rgba(38, 143, 255, 0.5);
@@ -546,7 +540,7 @@ input.form-control:focus, select.form-control:focus {
     opacity: 1;
 }
 .fondbanniere {
-    background-image: url("{{ asset('asset/img/fondjudo.jpg') }}");
+  
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

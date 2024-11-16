@@ -10,10 +10,10 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-		<link
-		rel="stylesheet" href="{{ asset('build/vendor.css') }}">
+		<link rel="stylesheet" href="{{ asset('build/vendor.css') }}">
 
 		<link href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" rel="stylesheet">
+		
 
 		<script src="{{ asset('build/vendor.js') }}" defer></script>
 		{% block stylesheets %}
@@ -99,7 +99,7 @@
 								</li>
 							</ul>
 						</li>
-						<a class="nav-link navbar-custom main-link" href="#">
+						<a class="nav-link navbar-custom main-link" href="{{ path('app_ressource') }}">
 							<b class="navbar-custom">Ressources</b></a>
 						<a class="nav-link navbar-custom main-link" href="{{ path('app_contact') }}">
 							<b class="navbar-custom">Nous contacter</b></a>

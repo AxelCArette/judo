@@ -49,7 +49,19 @@ class InscriptionType extends AbstractType
                 'choices' => $this->getGradeColors(),
                 'placeholder' => 'Choisir un grade',
             ])
+                  // Honeypot
+                  ->add('honeypot', TextType::class, [
+                    'required' => false,
+                    'mapped' => false,
+                    'attr' => [
+                        'class' => 'hidden', // La classe 'hidden' est définie dans ton fichier CSS
+                        'autocomplete' => 'off',
+                    ],
+                    'label' => false,
+                ])
+                
             ->add('club', TextType::class)
+      
             ->add('submit', SubmitType::class, [
                 'label' => 'S\'inscrire',
                 'attr' => [
@@ -69,15 +81,15 @@ class InscriptionType extends AbstractType
     {
         return [
             'Découverte'=> 'Découverte',
-            'Blanc' => 'blanc',
-            'Jaune' => 'jaune',
-            'Jaune orange'=>'JauneOrange',
-            'Orange' => 'orange',
-            'Orange Verte' => 'orangeVerte',
+            'Blanc' => 'Blanc',
+            'Jaune' => 'Jaune',
+            'Jaune orange'=>'Jaune Orange',
+            'Orange' => 'Orange',
+            'Orange Verte' => 'Orange Verte',
             'Verte' => 'Verte',
             'Verte bleu'=>'Verte bleu',
             'Bleu'=>'Bleu',
-            'Bleue Marron'=> 'BleuMarron',
+            'Bleue Marron'=> 'Bleu Marron',
             'Marron'=>'Marron',
             'Noire 1er dan'=> 'Noire 1er dan',
             'Noire 2éme dan'=> 'Noire 2éme dan',

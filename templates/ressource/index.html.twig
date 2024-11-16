@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Ressources | Judo Club D'Isbergues{% endblock %}
+
+{% block body %}
+    <h1 class="page-title text-center mb-5" data-aos="fade-up" data-aos-duration="1000">Ressources</h1>
+
+    {% if ressourcesParGrade is empty %}
+        <p class="text-center" data-aos="fade-up" data-aos-duration="1000">Aucune ressource disponible.</p>
+    {% else %}
+        <div class="container">
+            <div class="row">
+                {% for grade, ressources in ressourcesParGrade %}
+                    <div class="col-12" data-aos="fade-up" data-aos-duration="1000">
+                        <h2 class="grade-title text-center mb-4" data-aos="fade-up" data-aos-duration="1000">{{ grade }}</h2>
+
+                        <div class="row">
+                            {% for ressource in ressources %}
+                                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-duration="800">
+                                    <div class="card shadow-sm">
+                                        {% if ressource.image %}
+                                            <img src="{{ asset('asset/img/ressource/' ~ ressource.image) }}" alt="{{ ressource.titre }}" class="card-img-top" data-aos="fade-up" data-aos-duration="1000"/>
+                                        {% endif %}
+                                        <div class="card-body">
+                                            <h5 class="card-title" data-aos="fade-up" data-aos-duration="1000">{{ ressource.titre }}</h5>
+                                            <p class="card-text" data-aos="fade-up" data-aos-duration="1000">{{ ressource.text }}</p>
+                                            <p class="card-text" data-aos="fade-up" data-aos-duration="1000"><strong>Grade:</strong> {{ ressource.grade }}</p>
+                                            <p class="card-text" data-aos="fade-up" data-aos-duration="1000"><strong>Date:</strong> {{ ressource.datetime|date('d/m/Y H:i') }}</p>
+                                            {% if ressource.lien %}
+                                                <a href="{{ ressource.lien }}" target="_blank" class="btn btn-primary" data-aos="fade-up" data-aos-duration="1000">Voir la vidéo</a>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

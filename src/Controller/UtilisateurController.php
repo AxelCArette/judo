@@ -2,13 +2,13 @@
 
 namespace App\Controller;
 
-use App\Form\PhotoDeProfilType;
+use App\Form\UtilisateurType;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
-use Doctrine\ORM\EntityManagerInterface;
 
 class UtilisateurController extends AbstractController
 {
@@ -25,13 +25,15 @@ class UtilisateurController extends AbstractController
     {
         $user = $this->getUser();
 
-        $form = $this->createForm(PhotoDeProfilType::class, $user);
+        $form = $this->createForm(UtilisateurType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $file = $form->get('photo')->getData();
             $description = $form->get('description')->getData();
-            
+            $grade = $form->get('grade')->getData();
+
+            // Gestion de l'upload de la photo de profil
             if ($file) {
                 $newFilename = uniqid() . '.' . $file->guessExtension();
                 $file->move(
@@ -40,8 +42,9 @@ class UtilisateurController extends AbstractController
                 );
                 $user->setPhotosDeprofil('asset/img/imagedeprofil/' . $newFilename);
             }
-            
+
             $user->setDescription($description);
+            $user->setGrade($grade);
 
             $this->entityManager->persist($user);
             $this->entityManager->flush();
@@ -60,4 +63,3 @@ class UtilisateurController extends AbstractController
         ]);
     }
 }
-

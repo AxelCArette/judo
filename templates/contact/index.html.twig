@@ -1,20 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Contactez-nous{% endblock %}
+{% block title %}Contactez-nous | Judo Club d'Isbergues{% endblock %}
 
 {% block body %}
-<div class="container my-5">
-    <h1 class="mb-4 text-center">Contactez-nous</h1>
+<div class="container my-5" data-aos="fade-up">
+    <h1 class="mb-4 text-center" data-aos="fade-down">Contactez-nous</h1>
 
     {% if app.session.flashBag.has('success') %}
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <div class="alert alert-success alert-dismissible fade show" role="alert" data-aos="zoom-in">
             {{ app.session.flashBag.get('success')[0] }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     {% endif %}
 
     <!-- Liens vers les réseaux sociaux -->
-    <div class="d-flex justify-content-center mb-4">
+    <div class="d-flex justify-content-center mb-4" data-aos="fade-up" data-aos-delay="200">
         <a href="https://m.me/judoclubisbergues" target="_blank" class="btn btn-primary me-2">
             <i class="fab fa-facebook-messenger"></i> Messenger
         </a>
@@ -23,30 +23,30 @@
         </a>
     </div>
 
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="300">
         <div class="col-md-8">
-            <div class="card shadow-sm">
+            <div class="card shadow-sm" data-aos="flip-left" data-aos-delay="400">
                 <div class="card-body">
-                    <h3 class="card-title mb-4 text-center">Formulaire de contact</h3>
+                    <h3 class="card-title mb-4 text-center" data-aos="fade-down">Formulaire de contact</h3>
                     {{ form_start(form) }}
                     
-                    <div class="mb-3">
+                    <div class="mb-3" data-aos="zoom-in" data-aos-delay="500">
                         {{ form_row(form.NomDeLaPersonne, {'attr': {'class': 'form-control', 'placeholder': 'Nom'}}) }}
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3" data-aos="zoom-in" data-aos-delay="600">
                         {{ form_row(form.prenomdelapersonne, {'attr': {'class': 'form-control', 'placeholder': 'Prénom'}}) }}
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3" data-aos="zoom-in" data-aos-delay="700">
                         {{ form_row(form.adressemail, {'attr': {'class': 'form-control', 'placeholder': 'Adresse e-mail'}}) }}
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3" data-aos="zoom-in" data-aos-delay="800">
                         {{ form_row(form.numerodetelephonedelapersonne, {'attr': {'class': 'form-control', 'placeholder': 'Numéro de téléphone'}}) }}
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3" data-aos="zoom-in" data-aos-delay="900">
                         {{ form_row(form.textedelapersonne, {'attr': {'class': 'form-control', 'placeholder': 'Votre message'}}) }}
                     </div>
 
-                    <button type="submit" class="btn btn-success w-100">Envoyer</button>
+                    <button type="submit" class="btn btn-success w-100" data-aos="fade-up" data-aos-delay="1000">Envoyer</button>
                     
                     {{ form_end(form) }}
                 </div>

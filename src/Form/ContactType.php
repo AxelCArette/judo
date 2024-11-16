@@ -39,9 +39,18 @@ class ContactType extends AbstractType
                     'class' => 'form-control',
                     'rows' => 5,
                 ],
+            ])
+            // Champ Honeypot
+            ->add('honeypot', TextType::class, [
+                'required' => false, // Pas obligatoire
+                'mapped' => false,   // Non lié à l'entité
+                'attr' => [
+                    'class' => 'hidden', // Classe CSS pour cacher le champ
+                    'autocomplete' => 'off', // Désactive l'autocomplétion
+                ],
+                'label' => false, // Pas de label visible
             ]);
     }
-
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([

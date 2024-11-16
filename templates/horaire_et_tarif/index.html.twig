@@ -1,66 +1,111 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Horaire et Tarifs | Judo Club D'Isbergues{% endblock %}
+{% block title %}Horaires et Tarifs | Judo Club d'Isbergues{% endblock %}
 
 {% block body %}
-    <div class="container mt-5">
-        <!-- Titre de la page -->
-        <h2 class="text-center mb-5" data-aos="fade-up" data-aos-duration="1000">Horaires et Tarifs</h2>
+<div class="container mt-5">
+    <!-- Titre de la page -->
+    <h2 class="text-center mb-5" data-aos="fade-up" data-aos-duration="1000">Horaires et Tarifs</h2>
 
-        <!-- Section Horaires des Cours -->
-        <div class="row justify-content-center mb-4">
-            <div class="col-md-10" data-aos="fade-left" data-aos-duration="1000">
-                <div class="card shadow-sm">
-                    <div class="bg-primary text-white">
-                        <h3 class="text-center mb-0">Horaires des Cours</h3>
-                    </div>
-                    <div class="card-body">
-                        <h4 class="card-title">Taiso</h4>
-                        <ul class="list-unstyled">
-                            <li><strong>Lundi :</strong> 19h30 - 20h30</li>
-                        </ul>
+    <!-- Section Horaires des Cours -->
+ <div class="row justify-content-center mb-4">
+    <div class="col-md-10" data-aos="fade-left" data-aos-duration="1000">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white text-center">
+                <h3 class="mb-0">Horaires des Cours</h3>
+            </div>
+            <div class="card-body">
+                <!-- Section Taiso -->
+                <h4 class="card-title text-secondary">Taiso</h4>
+                <p class="text-muted">
+                    Le Taiso est une discipline axée sur la préparation physique, idéale pour renforcer la souplesse, 
+                    l'endurance et le bien-être général. Elle est accessible à tous, quels que soient l'âge et le niveau sportif.
+                </p>
+                <ul class="list-unstyled">
+                    <li><strong>Lundi :</strong> 19h30 - 20h30</li>
+                </ul>
 
-                        <h4 class="card-title">Judo (Enfants)</h4>
-                        <ul class="list-unstyled">
-                            <li><strong>Mercredi :</strong> 18h30 - 19h30</li>
-                            <li><strong>Vendredi :</strong> 18h30 - 19h30</li>
-                        </ul>
+                <!-- Section Judo (Enfants) -->
+                <h4 class="card-title text-secondary">Judo (Enfants)</h4>
+                <p class="text-muted">
+                    Adapté aux plus jeunes, le judo pour enfants leur permet de développer leur coordination, 
+                    leur discipline et leur respect, tout en s'amusant. Une excellente introduction aux arts martiaux.
+                </p>
+                <ul class="list-unstyled">
+                    <li><strong>Mercredi :</strong> 18h30 - 19h30</li>
+                    <li><strong>Vendredi :</strong> 18h30 - 19h30</li>
+                </ul>
 
-                        <h4 class="card-title">Judo (Adultes)</h4>
-                        <ul class="list-unstyled">
-                            <li><strong>Mercredi :</strong> 19h45 - 21h00</li>
-                            <li><strong>Vendredi :</strong> 20h30 - 21h30</li>
-                        </ul>
+                <!-- Section Judo (Adultes) -->
+                <h4 class="card-title text-secondary">Judo (Adultes)</h4>
+                <p class="text-muted">
+                    Le judo pour adultes se concentre sur la technique, la force et la maîtrise de soi. 
+                    C'est une activité parfaite pour améliorer votre condition physique tout en apprenant des techniques de combat.
+                </p>
+                <ul class="list-unstyled">
+                    <li><strong>Mercredi :</strong> 19h45 - 21h00</li>
+                    <li><strong>Vendredi :</strong> 20h30 - 21h30</li>
+                </ul>
 
-                        <h4 class="card-title">Jujitsu</h4>
-                        <ul class="list-unstyled">
-                            <li><strong>Vendredi :</strong> 19h45 - 20h30</li>
-                        </ul>
-                    </div>
-                </div>
+                <!-- Section Jujitsu -->
+                <h4 class="card-title text-secondary">Jujitsu</h4>
+                <p class="text-muted">
+                    Le Jujitsu est un art martial axé sur la défense personnelle, combinant des techniques de frappe, 
+                    de projection et de contrôle au sol. Une discipline idéale pour gagner en confiance et en efficacité.
+                </p>
+                <ul class="list-unstyled">
+                    <li><strong>Vendredi :</strong> 19h45 - 20h30</li>
+                </ul>
             </div>
         </div>
+    </div>
+</div>
 
-        <!-- Section Géolocalisation -->
-        <div class="row justify-content-center mb-4">
-            <div class="col-md-10" data-aos="fade-right" data-aos-duration="1000">
-                <div class="card shadow-sm">
-                    <div class="bg-success text-white">
-                        <h3 class="text-center mb-0">Adresse et Géolocalisation</h3>
-                    </div>
-                    <div class="card-body">
-                        <h4 class="card-title">Adresse :</h4>
-                        <p><strong>Rue Jean Jaurès, 62330 Isbergues</strong></p>
-                        <p><strong>Judo Club Isbergues</strong></p>
-                        
-                        <!-- Carte Google Maps -->
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item" src="https://maps.app.goo.gl/zgo2n1moHqM7j3Es8" allowfullscreen></iframe>
-                        </div>
-                    </div>
+
+    <!-- Section Tarifs -->
+    <div class="row justify-content-center mb-4">
+        <div class="col-md-10" data-aos="fade-right" data-aos-duration="1000">
+            <div class="card shadow-sm">
+                <div class="card-header bg-warning text-white text-center">
+                    <h3 class="mb-0">Tarifs</h3>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li>Licence : <strong>41 €</strong></li>
+                        <li>Taiso seul : <strong>80 €</strong></li>
+                        <li>Jujitsu seul : <strong>80 €</strong></li>
+                        <li>Cotisation complète : <strong>130 €</strong></li>
+                    </ul>
+                    <p class="text-muted">Exemple : Licence (41 €) + Cotisation complète (130 €) = <strong>171 €</strong></p>
+                    <p class="text-muted">Paiement accepté en plusieurs fois (jusqu'à 9 fois) et chèques ANCV.</p>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Section Adresse et Géolocalisation -->
+    <div class="row justify-content-center mb-4">
+        <div class="col-md-10" data-aos="fade-right" data-aos-duration="1000">
+            <div class="card shadow-sm">
+                <div class="card-header bg-success text-white text-center">
+                    <h3 class="mb-0">Adresse et Géolocalisation</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title text-secondary">Adresse :</h4>
+                    <p><strong>Rue Jean Jaurès, 62330 Isbergues</strong></p>
+                    <p><strong>Judo Club Isbergues</strong></p>
+                    
+                    <!-- Carte Google Maps -->
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe 
+                            class="embed-responsive-item" 
+                            src="https://maps.app.goo.gl/zgo2n1moHqM7j3Es8" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

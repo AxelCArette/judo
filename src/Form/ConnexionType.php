@@ -2,6 +2,7 @@
 // src/Form/ConnexionType.php
 namespace App\Form;
 
+use Doctrine\DBAL\Types\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -24,6 +25,15 @@ class ConnexionType extends AbstractType
             ->add('submit', SubmitType::class, [
                 'label' => 'Se connecter',
                 'attr' => ['class' => 'btn btn-primary']
+            ])
+            ->add('honeypot', TextType::class, [
+                'required' => false,
+                'mapped' => false,
+                'attr' => [
+                    'class' => 'hidden', // Classe pour cacher le champ
+                    'autocomplete' => 'off', // Empêcher l'autocomplétion
+                ],
+                'label' => false, // Pas de label visible
             ]);
     }
 

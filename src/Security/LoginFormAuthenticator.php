@@ -21,7 +21,7 @@ use Symfony\Component\Security\Http\Util\TargetPathTrait;
 
 class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
 {
-    use TargetPathTrait; // Permet de gérer la redirection vers la page d'origine, si définie.
+    use TargetPathTrait;
 
     private UrlGeneratorInterface $urlGenerator;
     private UserPasswordHasherInterface $passwordHasher;
@@ -37,6 +37,12 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
     // Méthode pour récupérer l'utilisateur et vérifier ses informations d'authentification
     public function authenticate(Request $request): Passport
     {
+        // Vérifier si le honeypot est rempli avant de procéder à l'authentification
+        if ($request->request->get('honeypot')) {
+            // Si le honeypot est rempli, c'est probablement un bot
+            throw new \Exception('Honeypot détecté, connexion invalide.');
+        }
+
         $adressemail = $request->request->get('adressemail');
         $password = $request->request->get('password');
 

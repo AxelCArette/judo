@@ -6,68 +6,92 @@
     <div class="banner">
         <img src="{{ asset('asset/img/bannierejudo01.jpeg') }}" alt="Bannière Judo" class="banner-image">
     </div>
-
+    <br>
     <section class="activities">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-10 col-md-10">
-                    <div class="row">
-                        <div class="col-12 col-md-6">
-                            <img src="{{ asset('asset/img/technique.jpg') }}" alt="Technique" class="activity-image" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
-                        </div>
-                        <div class="col-12 col-md-6 position-relative">
-                            <div class="activities-content p-4 rounded-background" data-aos="fade-up" data-aos-offset="300" data-aos-duration="1000">
-                                <h2>Nos activités :</h2>
-                                <p>Nous vous proposons un large éventail de disciplines et d'activités.</p>
-                                <button onclick="window.location.href='{{ path('app_horaire_et_tarif') }}'" class="btn btn-primary">Nos activités</button>
-                            </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-10 col-md-10">
+                <div class="row">
+                    <!-- Colonne avec l'image -->
+                    <div class="col-12 col-md-6 d-flex align-items-center">
+                        <img src="{{ asset('asset/img/technique.jpg') }}" alt="Technique" class="activity-image img-fluid" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+                    </div>
+                    <!-- Colonne avec le contenu textuel -->
+                    <div class="col-12 col-md-6 position-relative">
+                        <div class="activities-content p-4 rounded-background" data-aos="fade-up" data-aos-offset="300" data-aos-duration="1000">
+                            <h2 class="text-primary mb-3">Nos activités</h2>
+                            <p>
+                                Le Judo Club d'Isbergues propose plusieurs disciplines adaptées à tous les âges et niveaux, 
+                                que vous cherchiez à vous initier ou à approfondir vos compétences.
+                            </p>
+                            <ul class="list-unstyled">
+                                <li><strong>🥋 Judo :</strong> Techniques et maîtrise pour enfants et adultes.</li>
+                                <li><strong>🤸 Taiso :</strong> Préparation physique et bien-être.</li>
+                                <li><strong>🥊 Jujitsu :</strong> Défense personnelle et combat.</li>
+                            </ul>
+                            <button onclick="window.location.href='{{ path('app_horaire_et_tarif') }}'" class="btn btn-primary">Nos activités</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="club-values">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-10 col-md-10">
-                    <div class="row">
-                        <div class="col-12 col-md-6 position-relative">
-                            <div class="club-values-content p-4 rounded-background" data-aos="fade-up" data-aos-offset="300" data-aos-duration="1000">
-                                <h2>Notre club</h2>
-                                <p>La politesse, le courage, la sincérité, l'honneur, la modestie, le respect, le contrôle de soi, l'amitié.</p>
-                                <button onclick="window.location.href='{{ path('app_actualites') }}'" class="btn btn-primary">Notre club</button>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <img src="{{ asset('asset/img/bcpdemonde.jpg') }}" alt="Photo du club" class="club-image" data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section class="coach">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-10 col-md-10">
-                    <div class="row">
-                        <div class="col-12 col-md-6">
-                            <img src="{{ asset('asset/img/entraineur.jpg') }}" alt="Entraîneur" class="coach-image" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+   <section class="club-values">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-10 col-md-10">
+                <div class="row">
+                    <!-- Colonne avec le contenu texte -->
+                    <div class="col-12 col-md-6 d-flex align-items-center">
+                        <div class="club-values-content p-4 rounded-background" data-aos="fade-up" data-aos-offset="300" data-aos-duration="1000">
+                            <h2>Notre club</h2>
+                            <p>Le Judo Club d'Isbergues est un lieu convivial où chacun peut progresser à son rythme, 
+                            dans un environnement respectueux et passionné par les arts martiaux. Rejoignez-nous pour 
+                            vivre une expérience sportive unique !
+                            </p>
+                            <button onclick="window.location.href='{{ path('app_actualites') }}'" class="btn btn-primary">Actualités</button>
                         </div>
-                        <div class="col-12 col-md-6 position-relative">
-                            <div class="coach-content p-4 rounded-background" data-aos="fade-up" data-aos-offset="300" data-aos-duration="1000">
-                                <h2>Notre entraîneur</h2>
-                                <p>Pour la saison 2024, notre entraîneur :</p>
-                                <p><strong>COUBRONNE Philippe</strong><br>Depuis de nombreuses années, Philippe partage avec générosité son savoir, son expérience, et son amour pour le judo avec chacun d'entre nous.</p>
-                                <button onclick="window.location.href='{{ path('app_notre_bureau') }}'" class="btn btn-primary">Le bureau</button>
-                            </div>
+                    </div>
+                    <!-- Colonne avec l'image -->
+                    <div class="col-12 col-md-6 d-flex align-items-center">
+                        <img src="{{ asset('asset/img/bcpdemonde.jpg') }}" alt="Photo du club" class="club-image img-fluid" data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="coach">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-10 col-md-10">
+                <div class="row">
+                    <!-- Colonne avec l'image -->
+                    <div class="col-12 col-md-6 d-flex align-items-center">
+                        <img src="{{ asset('asset/img/entraineur.jpg') }}" alt="Entraîneur" class="coach-image img-fluid" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+                    </div>
+                    <!-- Colonne avec le contenu texte -->
+                    <div class="col-12 col-md-6 d-flex align-items-center">
+                        <div class="coach-content p-4 rounded-background" data-aos="fade-up" data-aos-offset="300" data-aos-duration="1000">
+                            <h2>Notre entraîneur</h2>
+                            <p>Pour la saison 2024, notre entraîneur :</p>
+                            <p><strong>COUBRONNE Philippe</strong><br>Depuis de nombreuses années, Philippe partage avec générosité son savoir, son expérience, et son amour pour le judo avec chacun d'entre nous.</p>
+                            <button onclick="window.location.href='{{ path('app_notre_bureau') }}'" class="btn btn-primary">Le bureau</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+
+
+    
+   
 {% endblock %}

@@ -6,11 +6,11 @@
 <div class="profil-container container mt-4">
     <div class="row justify-content-center">
         <!-- Carte de profil -->
-        <div class="col-12 col-md-6 mb-4" data-aos="fade-up" data-aos-duration="800">
+        <div class="col-12 col-md-6 mb-4">
             <div class="profil-card {{ grade|replace({' ': ''}) }}">
                 <h3 class="profil-name">{{ prenom }}</h3>
                 
-                <div class="profil-photo" data-aos="zoom-in" data-aos-duration="800">
+                <div class="profil-photo">
                     {% if photoProfil %}
                         <img src="{{ asset(photoProfil) }}" alt="Photo de profil" class="profil-img" />
                     {% else %}
@@ -18,10 +18,10 @@
                     {% endif %}
                 </div>
 
-                <div class="profil-info" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                <div class="profil-info">
                     <div class="profil-grade">
                         {% if grade %}
-                            <span class="grade">Grade {{ grade }}</span>
+                            <span class="grade">Grade : {{ grade }}</span>
                         {% endif %}
                     </div>
 
@@ -32,52 +32,34 @@
             </div>
         </div>
 
-        <!-- Menu de mise à jour du profil en dessous de la carte -->
-        <div class="col-12 col-md-8 d-flex flex-column" data-aos="fade-left" data-aos-duration="800" data-aos-delay="400">
+        <!-- Formulaire de mise à jour -->
+        <div class="col-12 col-md-8">
             <div class="profil-update-section mt-4">
                 <h3>Mettre à jour votre profil</h3>
 
-                <!-- Menu déroulant avec deux sections (photo et description) -->
-                <div class="accordion" id="profileAccordion">
-                    <!-- Section "Changer la photo" -->
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="photoHeading">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#photoCollapse" aria-expanded="true" aria-controls="photoCollapse">
-                                Changer la photo
-                            </button>
-                        </h2>
-                        <div id="photoCollapse" class="accordion-collapse collapse show" aria-labelledby="photoHeading" data-bs-parent="#profileAccordion">
-                            <div class="accordion-body">
-                                {{ form_start(form) }}
-                                <div class="form-group">
-                                    {{ form_row(form.photo, {'attr': {'class': 'form-control'}}) }}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Section "Mettre à jour la description" -->
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="descriptionHeading">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#descriptionCollapse" aria-expanded="false" aria-controls="descriptionCollapse">
-                                Mettre à jour la description
-                            </button>
-                        </h2>
-                        <div id="descriptionCollapse" class="accordion-collapse collapse" aria-labelledby="descriptionHeading" data-bs-parent="#profileAccordion">
-                            <div class="accordion-body">
-                                <div class="form-group">
-                                    {{ form_row(form.description, {'attr': {'class': 'form-control'}}) }}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                {{ form_start(form) }}
+                <div class="form-group mb-3">
+                    {{ form_row(form.photo, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="form-group mb-3">
+                    {{ form_row(form.description, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="form-group mb-3">
+                    {{ form_row(form.grade, {'attr': {'class': 'form-control'}}) }}
                 </div>
 
-                <!-- Bouton de soumission, en dehors de l'accordéon -->
-                <button type="submit" class="btn btn-primary mt-3">Mettre à jour</button>
+                <!-- Bouton de mise à jour -->
+                <button type="submit" class="btn btn-primary">Mettre à jour</button>
                 {{ form_end(form) }}
             </div>
         </div>
     </div>
+
+    <!-- Lien vers la section admin si l'utilisateur est admin -->
+    {% if is_granted('ROLE_ADMIN') %}
+        <div class="admin-link mt-4">
+            <a href="{{ path('admin') }}" class="btn btn-warning">Accéder à la section admin</a>
+        </div>
+    {% endif %}
 </div>
 {% endblock %}

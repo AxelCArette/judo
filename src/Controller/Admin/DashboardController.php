@@ -7,6 +7,7 @@ use App\Entity\Album;
 use App\Entity\Contact;
 use App\Entity\Membres;
 use App\Entity\Photos;
+use App\Entity\Ressource;
 use App\Entity\Sponsors;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -41,9 +42,11 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Membres', 'fas fa-users', Membres::class);
         yield MenuItem::linkToCrud('Sponsors', 'fas fa-handshake', Sponsors::class);
         
-        yield MenuItem ::Section ('Section Photos et actualités');
+        yield MenuItem ::Section ('Photos et actualités');
         yield MenuItem::linkToCrud('Album Photos', 'fas fa-images', Album::class);
         yield MenuItem::linkToCrud('Photos', 'fas fa-camera', Photos::class);
         yield MenuItem::linkToCrud('Actualités', 'fas fa-newspaper', Actualites::class);
+        yield MenuItem ::Section ('Ressources');
+        yield MenuItem::linkToCrud('Ressource', 'fas fa-folder-open', Ressource::class);
     }
 }

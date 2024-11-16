@@ -30,7 +30,16 @@ class InscriptionController extends AbstractController
 
         $form->handleRequest($request);
 
+        // Vérification du honeypot
         if ($form->isSubmitted() && $form->isValid()) {
+            $honeypot = $form->get('honeypot')->getData();
+
+            if (!empty($honeypot)) {
+                // Si le honeypot est rempli, rejeter la soumission
+                throw new \Exception('Honeypot détecté, soumission invalide.');
+            }
+
+            // Vérifier si l'adresse e-mail est déjà utilisée
             $existingMember = $this->entityManager
                 ->getRepository(Membres::class)
                 ->findOneBy(['adressemail' => $membres->getAdressemail()]);
@@ -40,10 +49,11 @@ class InscriptionController extends AbstractController
                 return $this->redirectToRoute('app_inscription');
             }
 
-            // Hacher le mot de passe
+            // Hachage du mot de passe
             $hashedPassword = $this->passwordHasher->hashPassword($membres, $membres->getMotdepasse());
             $membres->setMotdepasse($hashedPassword);
 
+            // Sauvegarde du membre
             $this->entityManager->persist($membres);
             $this->entityManager->flush();
 

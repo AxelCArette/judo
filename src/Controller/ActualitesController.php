@@ -13,7 +13,6 @@ class ActualitesController extends AbstractController
     #[Route('/actualites', name: 'app_actualites')]
     public function index(EntityManagerInterface $em): Response
     {
-        // Récupérer les actualités publiées
         $actualites = $em->getRepository(Actualites::class)
                         ->findBy(['publier' => true], ['datePublication' => 'DESC']);
 
@@ -25,11 +24,9 @@ class ActualitesController extends AbstractController
     #[Route('/actualites/{id}', name: 'app_actualite_detail')]
     public function detail(Actualites $actualite): Response
     {
-        // Vérifier si l'actualité existe, sinon afficher une page 404
         if (!$actualite) {
             throw $this->createNotFoundException('Actualité non trouvée');
         }
-
         return $this->render('actualites/detail.html.twig', [
             'actualite' => $actualite
         ]);
