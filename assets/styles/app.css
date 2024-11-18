@@ -111,10 +111,62 @@ body {
 				width: 75px;
 				height: 75px;
 			}
-.carousel-photo {
-    width: 100%;
-    height: 500px; /* Ajuste la hauteur selon tes préférences */
-}
+            .profil-photo {
+                position: relative;
+                width: 100%;
+                height: auto;
+                perspective: 1000px; /* Perspective pour effet 3D */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            
+            /* Photo reculée */
+            .profil-photo img {
+                width: 80%;
+                transform: translateZ(-200px); /* Photo reculée en arrière-plan */
+                box-shadow: inset 0px 0px 50px rgba(0, 0, 0, 0.5); /* Ombre interne pour effet de profondeur */
+                border-radius: 10px;
+                transition: transform 0.5s ease, box-shadow 0.5s ease;
+            }
+            
+            /* Bordures pour effet de cadre en profondeur */
+            .profil-photo .border-layer {
+                position: absolute;
+                border: 3px solid rgba(255, 255, 255, 0.6);
+                border-radius: 10px;
+                box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+            }
+            
+            /* Couche la plus proche */
+            .profil-photo .border-layer:nth-child(1) {
+                width: 90%;
+                height: 90%;
+                transform: translateZ(-50px);
+            }
+            
+            /* Couche intermédiaire */
+            .profil-photo .border-layer:nth-child(2) {
+                width: 95%;
+                height: 95%;
+                transform: translateZ(-100px);
+                border: 2px solid rgba(255, 255, 255, 0.4);
+            }
+            
+            /* Couche plus profonde */
+            .profil-photo .border-layer:nth-child(3) {
+                width: 100%;
+                height: 100%;
+                transform: translateZ(-150px);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            }
+            
+            /* Interaction : photo remonte légèrement */
+            .profil-photo:hover img {
+                transform: translateZ(-100px); /* La photo avance un peu */
+                box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.4);
+            }
+            
 
 .profil-card {
     position: relative;
@@ -266,6 +318,7 @@ body {
 /* Style pour la photo de profil */
 .profil-photo img {
     width: 100%;
+    
 }
 
 .profil-info {

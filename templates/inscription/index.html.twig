@@ -1,5 +1,21 @@
 {% extends 'base.html.twig' %}
 
+{% block head %}
+<meta charset="UTF-8">
+<meta name="description" content="Inscrivez-vous en ligne au Judo Club d'Isbergues. Remplissez le formulaire d'inscription pour rejoindre notre club de judo, jujitsu et Taiso. Découvrez les conditions d'inscription et les informations nécessaires.">
+<meta name="keywords" content="inscription judo club isbergues, rejoindre judo club, formulaire inscription judo, jujitsu, Taiso, inscription en ligne, club isbergues">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Inscription | Judo Club Isbergues">
+<meta property="og:description" content="Inscrivez-vous dès maintenant au Judo Club d'Isbergues. Complétez le formulaire d'inscription pour rejoindre nos cours de judo, jujitsu et Taiso.">
+<meta property="og:image" content="{{ asset('asset/img/logo.jpg') }}">
+<meta property="og:url" content="{{ app.request.uri }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Inscription | Judo Club Isbergues">
+<meta name="twitter:description" content="Remplissez le formulaire d'inscription pour rejoindre le Judo Club d'Isbergues et profiter de nos cours de judo, jujitsu et Taiso.">
+<meta name="twitter:image" content="{{ asset('asset/img/logo.jpg') }}">
+{% endblock %}
+
+
 {% block title %}Inscription | Judo Club Isbergues{% endblock %}
 
 {% block body %}

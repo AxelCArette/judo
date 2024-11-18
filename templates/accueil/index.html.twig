@@ -1,5 +1,21 @@
 {% extends 'base.html.twig' %}
 
+{% block head %}
+<meta charset="UTF-8">
+<meta name="description" content="Rejoignez le Judo Club Isbergues pour des activités sportives variées : judo, jujitsu, taiso et bien plus, adaptés à tous les niveaux. Profitez de notre coaching personnalisé et de notre environnement convivial.">
+<meta name="keywords" content="Judo Club Isbergues, judo, jujitsu, taiso, coaching sportif, arts martiaux, préparation physique, défense personnelle, Isbergues, sport pour tous les âges">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Judo Club Isbergues - Coaching et Activités Sportives">
+<meta property="og:description" content="Améliorez votre performance sportive avec le Judo Club Isbergues. Découvrez nos activités et services de coaching pour tous niveaux.">
+<meta property="og:image" content="{{ asset('asset/img/logo.jpg') }}">
+<meta property="og:url" content="{{ app.request.uri }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Judo Club Isbergues - Coaching et Activités Sportives">
+<meta name="twitter:description" content="Rejoignez le Judo Club Isbergues pour des activités sportives adaptées à tous les niveaux et des formations en coaching.">
+<meta name="twitter:image" content="{{ asset('asset/img/logo.jpg') }}">
+{% endblock %}
+
+
 {% block title %}Accueil | Judo Club Isbergues{% endblock %}
 
 {% block body %}

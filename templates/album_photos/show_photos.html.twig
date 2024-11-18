@@ -1,5 +1,21 @@
 {% extends 'base.html.twig' %}
 
+{% block head %}
+<meta charset="UTF-8">
+<meta name="description" content="Explorez les photos de l'album {{ album.name }} du Judo Club Isbergues. Découvrez les moments mémorables capturés lors de nos événements et compétitions.">
+<meta name="keywords" content="Judo Club Isbergues, album photo {{ album.name }}, photos judo, événements judo, compétitions, arts martiaux, photos, Isbergues">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Photos de {{ album.name }} | Judo Club Isbergues">
+<meta property="og:description" content="Revivez les meilleurs moments du Judo Club Isbergues à travers les photos de l'album {{ album.name }}. Des images exclusives de nos événements et compétitions.">
+<meta property="og:image" content="{{ asset('asset/img/logo.jpg') }}">
+<meta property="og:url" content="{{ app.request.uri }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Photos de {{ album.name }} | Judo Club Isbergues">
+<meta name="twitter:description" content="Découvrez les photos de l'album {{ album.name }} du Judo Club Isbergues. Des images des moments forts de nos événements et compétitions.">
+<meta name="twitter:image" content="{{ asset('asset/img/logo.jpg') }}">
+{% endblock %}
+
+
 {% block title %}Photos de {{ album.name }} | Judo Club D'isbergues{% endblock %}
 
 {% block body %}

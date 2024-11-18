@@ -1,65 +1,92 @@
 {% extends 'base.html.twig' %}
 
+{% block head %}
+<meta charset="UTF-8">
+<meta name="description" content="Découvrez et mettez à jour votre profil sur le site du Judo Club d'Isbergues. Vous pouvez modifier votre photo de profil, votre description et votre grade.">
+<meta name="keywords" content="profil utilisateur, mise à jour profil, photo de profil, description, grade, Judo Club Isbergues">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Profil de {{ prenom }} | Judo Club d'Isbergues">
+<meta property="og:description" content="Accédez à votre profil sur le Judo Club d'Isbergues pour mettre à jour vos informations personnelles et suivre votre progression.">
+<meta property="og:image" content="{{ asset(photoProfil ? photoProfil : 'asset/img/default-profile.jpg') }}">
+<meta property="og:url" content="{{ app.request.uri }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Profil de {{ prenom }} | Judo Club d'Isbergues">
+<meta name="twitter:description" content="Mettez à jour votre profil et consultez vos informations personnelles sur le Judo Club d'Isbergues.">
+<meta name="twitter:image" content="{{ asset(photoProfil ? photoProfil : 'asset/img/default-profile.jpg') }}">
+{% endblock %}
+
+
 {% block title %}Profil de {{ prenom }}{% endblock %}
 
 {% block body %}
 <div class="profil-container container mt-4">
     <div class="row justify-content-center">
-        <!-- Carte de profil -->
-        <div class="col-12 col-md-6 mb-4">
+        <!-- Colonne vide (1) à gauche pour l'écart -->
+        <div class="col-1"></div>
+
+        <!-- Carte de profil à gauche (5 colonnes) -->
+        <div class="col-5 mb-4">
             <div class="profil-card {{ grade|replace({' ': ''}) }}">
                 <h3 class="profil-name">{{ prenom }}</h3>
-                
                 <div class="profil-photo">
                     {% if photoProfil %}
+                        <div class="border-layer"></div>
+                        <div class="border-layer"></div>
+                        <div class="border-layer"></div>
                         <img src="{{ asset(photoProfil) }}" alt="Photo de profil" class="profil-img" />
                     {% else %}
                         <p>Aucune photo de profil</p>
                     {% endif %}
                 </div>
-
                 <div class="profil-info">
+                    {% if grade %}
                     <div class="profil-grade">
-                        {% if grade %}
-                            <span class="grade">Grade : {{ grade }}</span>
-                        {% endif %}
+                        <span class="grade">Grade : {{ grade }}</span>
                     </div>
-
+                    {% endif %}
                     {% if description %}
-                        <p class="profil-description">{{ description }}</p>
+                    <p class="profil-description">{{ description }}</p>
                     {% endif %}
                 </div>
             </div>
         </div>
 
-        <!-- Formulaire de mise à jour -->
-        <div class="col-12 col-md-8">
-            <div class="profil-update-section mt-4">
+        <!-- Colonne vide (1) pour l'écart -->
+        <div class="col-1"></div>
+
+        <!-- Formulaire de mise à jour à droite (5 colonnes) -->
+        <div class="col-5">
+            <div class="profil-update-section">
                 <h3>Mettre à jour votre profil</h3>
-
                 {{ form_start(form) }}
-                <div class="form-group mb-3">
-                    {{ form_row(form.photo, {'attr': {'class': 'form-control'}}) }}
-                </div>
-                <div class="form-group mb-3">
-                    {{ form_row(form.description, {'attr': {'class': 'form-control'}}) }}
-                </div>
-                <div class="form-group mb-3">
-                    {{ form_row(form.grade, {'attr': {'class': 'form-control'}}) }}
-                </div>
-
-                <!-- Bouton de mise à jour -->
-                <button type="submit" class="btn btn-primary">Mettre à jour</button>
+                    <div class="form-group mb-3">
+                        {{ form_row(form.photo, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group mb-3">
+                        {{ form_row(form.description, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group mb-3">
+                        {{ form_row(form.grade, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <!-- Bouton de mise à jour -->
+                    <button type="submit" class="btn btn-primary w-100">Mettre à jour</button>
                 {{ form_end(form) }}
             </div>
-        </div>
-    </div>
 
-    <!-- Lien vers la section admin si l'utilisateur est admin -->
-    {% if is_granted('ROLE_ADMIN') %}
-        <div class="admin-link mt-4">
-            <a href="{{ path('admin') }}" class="btn btn-warning">Accéder à la section admin</a>
+            <!-- Liens de navigation sous le formulaire -->
+            <div class="mt-4">
+                <!-- Lien vers la modification du mot de passe -->
+                <a href="{{ path('app_utilisateur_changer_mdp') }}" class="btn btn-secondary w-100 mb-2">Modifier le mot de passe</a>
+                
+                <!-- Lien vers la section admin si l'utilisateur est admin -->
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('admin') }}" class="btn btn-warning w-100">Accéder à la section admin</a>
+                {% endif %}
+            </div>
         </div>
-    {% endif %}
+
+        <!-- Colonne vide (1) à droite pour l'écart -->
+        <div class="col-1"></div>
+    </div>
 </div>
 {% endblock %}

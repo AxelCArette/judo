@@ -1,5 +1,21 @@
 {% extends 'base.html.twig' %}
 
+{% block head %}
+<meta charset="UTF-8">
+<meta name="description" content="Découvrez les horaires des cours de Judo, Taiso, Jujitsu ainsi que les tarifs du Judo Club d'Isbergues. Inscrivez-vous dès maintenant pour des cours adaptés à tous les niveaux !">
+<meta name="keywords" content="horaires judo club isbergues, tarifs judo isbergues, Taiso, Jujitsu, judo enfants, judo adultes, inscription judo club">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Horaires et Tarifs | Judo Club d'Isbergues">
+<meta property="og:description" content="Consultez les horaires et les tarifs des cours de Judo, Taiso et Jujitsu au Judo Club d'Isbergues. Inscrivez-vous pour rejoindre notre club !">
+<meta property="og:image" content="{{ asset('asset/img/logo.jpg') }}">
+<meta property="og:url" content="{{ app.request.uri }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Horaires et Tarifs | Judo Club d'Isbergues">
+<meta name="twitter:description" content="Découvrez les horaires des cours et les tarifs pour le Judo, Taiso, et Jujitsu au Judo Club d'Isbergues. Rejoignez-nous pour une expérience enrichissante.">
+<meta name="twitter:image" content="{{ asset('asset/img/logo.jpg') }}">
+{% endblock %}
+
+
 {% block title %}Horaires et Tarifs | Judo Club d'Isbergues{% endblock %}
 
 {% block body %}

@@ -6,7 +6,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextField as EasyAdminTextField; // Utilisé pour créer un message custom pour le mot de passe
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class MembresCrudController extends AbstractCrudController
 {
@@ -17,14 +18,22 @@ class MembresCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
+        $rolesChoices = [
+            'User' => 'ROLE_USER',
+            'Admin' => 'ROLE_ADMIN',
+        ];
+
         return [
             TextField::new('nom'),
             TextField::new('prenom'),
             TextField::new('adressemail'),
             TextField::new('grade'),
             TextField::new('club'),
-            TextField::new('Description')
+            TextEditorField::new('description'),
+            ChoiceField::new('roles')
+                ->setChoices($rolesChoices)
+                ->allowMultipleChoices()
+                ->setHelp('Sélectionner un ou plusieurs rôles')
         ];
     }
-    
 }

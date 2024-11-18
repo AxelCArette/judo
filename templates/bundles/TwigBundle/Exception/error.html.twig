@@ -1,6 +1,20 @@
-{# templates/error/404.html.twig #}
-
 {% extends 'base.html.twig' %}
+
+{% block head %}
+<meta charset="UTF-8">
+<meta name="description" content="La page que vous cherchez est introuvable. Retournez à l'accueil du Judo Club Isbergues pour explorer nos activités et événements.">
+<meta name="keywords" content="Judo Club Isbergues, page non trouvée, erreur 404, retour à l'accueil, activités judo, événements judo, sports Isbergues">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Page non trouvée | Judo Club Isbergues">
+<meta property="og:description" content="La page que vous recherchez n'existe pas. Revenez à l'accueil du Judo Club Isbergues pour découvrir nos activités et événements.">
+<meta property="og:image" content="{{ asset('asset/img/logo.jpg') }}">
+<meta property="og:url" content="{{ app.request.uri }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Page non trouvée | Judo Club Isbergues">
+<meta name="twitter:description" content="Désolé, la page que vous cherchez n'existe pas. Vous pouvez retourner à l'accueil du Judo Club Isbergues.">
+<meta name="twitter:image" content="{{ asset('asset/img/logo.jpg') }}">
+{% endblock %}
+
 
 {% block title %}Page non trouvée{% endblock %}
 

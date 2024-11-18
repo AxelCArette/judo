@@ -1,5 +1,19 @@
 {% extends 'base.html.twig' %}
 
+{% block head %}
+<meta charset="UTF-8">
+<meta name="description" content="Accédez aux ressources disponibles pour les membres du Judo Club d'Isbergues, classées par grade. Trouvez des vidéos, des articles et d'autres matériels pour améliorer votre pratique du judo.">
+<meta name="keywords" content="ressources judo, ressources club judo isbergues, grade judo, vidéos judo, documents judo, formation judo, club judo isbergues">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ressources | Judo Club d'Isbergues">
+<meta property="og:description" content="Découvrez les ressources pour chaque grade au Judo Club d'Isbergues : vidéos, articles et plus, pour améliorer vos compétences en judo.">
+<meta property="og:image" content="{{ asset('asset/img/logo.jpg') }}">
+<meta property="og:url" content="{{ app.request.uri }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ressources | Judo Club d'Isbergues">
+<meta name="twitter:description" content="Explorez les ressources par grade pour les membres du Judo Club d'Isbergues, incluant vidéos et autres contenus utiles pour progresser en judo.">
+<meta name="twitter:image" content="{{ asset('asset/img/logo.jpg') }}">
+{% endblock %}
 
 {% block title %}Ressources | Judo Club D'Isbergues{% endblock %}
 

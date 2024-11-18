@@ -1,5 +1,18 @@
 {% extends 'base.html.twig' %}
 
+{% block head %}
+<meta charset="UTF-8">
+<meta name="description" content="{{ actualite.Titre }} - {{ actualite.Contenu|slice(0, 150) ~ '...' }}">
+<meta name="keywords" content="Judo Club Isbergues, actualités, judo, jujitsu, sport, coaching, arts martiaux, Isbergues, {{ actualite.Titre }}">
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{ actualite.Titre }}">
+<meta property="og:description" content="{{ actualite.Titre }} - {{ actualite.Contenu|slice(0, 150) ~ '...' }}">
+<meta property="og:url" content="{{ app.request.uri }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ actualite.Titre }}">
+<meta name="twitter:description" content="{{ actualite.Titre }} - {{ actualite.Contenu|slice(0, 150) ~ '...' }}">
+{% endblock %}
+
 {% block title %}{{ actualite.Titre }}{% endblock %}
 
 {% block body %}

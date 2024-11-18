@@ -1,5 +1,21 @@
 {% extends 'base.html.twig' %}
 
+{% block head %}
+<meta charset="UTF-8">
+<meta name="description" content="Contactez le Judo Club d'Isbergues pour toute question ou demande d'information. Utilisez notre formulaire ou rejoignez-nous sur les réseaux sociaux.">
+<meta name="keywords" content="Contact Judo Club Isbergues, formulaire de contact, contactez-nous, club de judo, Isbergues, judo, sports Isbergues">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contactez-nous | Judo Club d'Isbergues">
+<meta property="og:description" content="Besoin d'informations ? Contactez le Judo Club d'Isbergues via notre formulaire de contact ou rejoignez-nous sur Facebook et Messenger.">
+<meta property="og:image" content="{{ asset('asset/img/logo.jpg') }}">
+<meta property="og:url" content="{{ app.request.uri }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contactez-nous | Judo Club d'Isbergues">
+<meta name="twitter:description" content="Contactez le Judo Club d'Isbergues pour poser vos questions. Utilisez notre formulaire ou rejoignez-nous sur Messenger et Facebook.">
+<meta name="twitter:image" content="{{ asset('asset/img/logo.jpg') }}">
+{% endblock %}
+
+
 {% block title %}Contactez-nous | Judo Club d'Isbergues{% endblock %}
 
 {% block body %}

@@ -1,5 +1,21 @@
 {% extends 'base.html.twig' %}
 
+{% block head %}
+<meta charset="UTF-8">
+<meta name="description" content="Découvrez le bureau du Judo Club d'Isbergues. Rencontrez les membres clés de notre équipe, de notre président à notre développeur web, en passant par l'entraîneur, le trésorier et d'autres responsables.">
+<meta name="keywords" content="bureau judo club isbergues, équipe club judo, président judo, trésorier judo, entraîneur judo, secrétaire club, photographe judo, développeur web club">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Le Bureau | Judo Club d'Isbergues">
+<meta property="og:description" content="Découvrez l'équipe dirigeante du Judo Club d'Isbergues, composée du président, trésorier, entraîneur et autres membres essentiels qui font vivre notre club.">
+<meta property="og:image" content="{{ asset('asset/img/logo.jpg') }}">
+<meta property="og:url" content="{{ app.request.uri }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Le Bureau | Judo Club d'Isbergues">
+<meta name="twitter:description" content="Rencontrez l'équipe dirigeante du Judo Club d'Isbergues : président, trésorier, entraîneur et bien d'autres acteurs essentiels du club.">
+<meta name="twitter:image" content="{{ asset('asset/img/logo.jpg') }}">
+{% endblock %}
+
+
 {% block title %}Le Bureau | Judo Club D'isbergues
 {% endblock %}
 

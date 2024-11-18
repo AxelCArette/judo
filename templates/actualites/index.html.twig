@@ -1,5 +1,22 @@
 {% extends 'base.html.twig' %}
 
+
+{% block head %}
+<meta charset="UTF-8">
+<meta name="description" content="Découvrez les dernières actualités du Judo Club Isbergues : événements, résultats, et bien plus. Restez informé sur nos activités et notre club.">
+<meta name="keywords" content="Judo Club Isbergues, actualités judo, événements judo, résultats judo, sports, arts martiaux, actualités, Isbergues">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Actualités | Judo Club Isbergues">
+<meta property="og:description" content="Restez à jour avec les dernières actualités du Judo Club Isbergues. Découvrez nos événements, résultats, et autres informations importantes pour nos membres.">
+<meta property="og:image" content="{{ asset('asset/img/logo.jpg') }}">
+<meta property="og:url" content="{{ app.request.uri }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Actualités | Judo Club Isbergues">
+<meta name="twitter:description" content="Suivez les actualités du Judo Club Isbergues pour découvrir nos derniers événements, résultats et autres infos importantes.">
+<meta name="twitter:image" content="{{ asset('asset/img/logo.jpg') }}">
+{% endblock %}
+
+
 {% block title %}Actualités | Judo club d'Isbergues
 {% endblock %}
 

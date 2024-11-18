@@ -1,5 +1,20 @@
 {% extends 'base.html.twig' %}
 
+{% block head %}
+<meta charset="UTF-8">
+<meta name="description" content="Découvrez nos sponsors qui soutiennent le Judo Club d'Isbergues. Explorez leurs logos, descriptions et visitez leurs sites web pour plus d'informations.">
+<meta name="keywords" content="sponsors, partenaires, Judo Club, Isbergues, soutien, entreprises partenaires, sponsors judo">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nos Sponsors | Judo Club d'Isbergues">
+<meta property="og:description" content="Nos sponsors soutiennent le Judo Club d'Isbergues. Découvrez leurs logos et accédez à leurs sites web pour plus d'informations.">
+<meta property="og:image" content="{{ asset('asset/img/logo.jpg') }}">
+<meta property="og:url" content="{{ app.request.uri }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nos Sponsors | Judo Club d'Isbergues">
+<meta name="twitter:description" content="Découvrez nos partenaires et sponsors du Judo Club d'Isbergues, avec des liens vers leurs sites web.">
+<meta name="twitter:image" content="{{ asset('asset/img/logo.jpg') }}">
+{% endblock %}
+
 {% block title %}Nos sponsors | Judo Club Isbergues{% endblock %}
 
 {% block body %}

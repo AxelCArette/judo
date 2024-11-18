@@ -1,6 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Connexion{% endblock %}
+{% block head %}
+<meta charset="UTF-8">
+<meta name="description" content="Connectez-vous à votre compte membre du Judo Club d'Isbergues pour accéder à nos services et informations exclusives.">
+<meta name="keywords" content="connexion, judo, club, Isbergues, se connecter, espace membre, compte utilisateur">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Connexion | Judo Club d'Isbergues">
+<meta property="og:description" content="Accédez à votre espace membre du Judo Club d'Isbergues pour consulter les activités et informations exclusives après vous être connecté.">
+<meta property="og:image" content="{{ asset('asset/img/logo.jpg') }}">
+<meta property="og:url" content="{{ app.request.uri }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Connexion | Judo Club d'Isbergues">
+<meta name="twitter:description" content="Connectez-vous à votre compte du Judo Club d'Isbergues et accédez à des contenus exclusifs pour les membres.">
+<meta name="twitter:image" content="{{ asset('asset/img/logo.jpg') }}">
+{% endblock %}
+
+
+{% block title %}Connexion | Judo Club D'Isbergues{% endblock %}
 
 {% block body %}
     <div class="container mt-5">

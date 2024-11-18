@@ -1,5 +1,20 @@
 {% extends 'base.html.twig' %}
 
+{% block head %}
+<meta charset="UTF-8">
+<meta name="description" content="Consultez la politique de confidentialité du Judo Club d'Isbergues pour comprendre comment nous collectons, utilisons et protégeons vos données personnelles conformément au RGPD.">
+<meta name="keywords" content="politique de confidentialité, RGPD, protection des données, judo, données personnelles, confidentialité Judo Club Isbergues, gestion des données, cookies">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Politique de Confidentialité | Judo Club d'Isbergues">
+<meta property="og:description" content="Découvrez la politique de confidentialité du Judo Club d'Isbergues, y compris comment nous collectons et protégeons vos données personnelles conformément au RGPD.">
+<meta property="og:image" content="{{ asset('asset/img/logo.jpg') }}">
+<meta property="og:url" content="{{ app.request.uri }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Politique de Confidentialité | Judo Club d'Isbergues">
+<meta name="twitter:description" content="Consultez la politique de confidentialité du Judo Club d'Isbergues pour comprendre la gestion de vos données personnelles et votre vie privée.">
+<meta name="twitter:image" content="{{ asset('asset/img/logo.jpg') }}">
+{% endblock %}
+
 {% block title %}RGPD | Judo Club Isbergues{% endblock %}
 
 {% block body %}

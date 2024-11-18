@@ -2,8 +2,11 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		{% block head %}{% endblock %}
+		<meta name="author" content=" Judo club Isbergues ">
 		<title>
-			{% block title %}Welcome!
+			{% block title %}Judo club Isbergues
 			{% endblock %}
 		</title>
 		<link rel="icon" href="{{ asset('asset/img/logojudo.ico') }}" type="image/x-icon">
@@ -13,7 +16,7 @@
 		<link rel="stylesheet" href="{{ asset('build/vendor.css') }}">
 
 		<link href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" rel="stylesheet">
-		
+
 
 		<script src="{{ asset('build/vendor.js') }}" defer></script>
 		{% block stylesheets %}
@@ -29,7 +32,7 @@
 	</head>
 
 	<body>
-	
+
 		<nav class="navbar navbar-expand-lg navbar-light navbar-custom">
 			<div class="container-fluid navbar-custom">
 				<a class="navbar-brand navbar-custom" href="{{ path('app_accueil') }}">
@@ -44,24 +47,35 @@
 							<a class="nav-link dropdown-toggle navbar-custom main-link" href="#" id="navbarDropdownAccount" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								<b class="navbar-custom">Mon compte</b>
 							</a>
-							<ul class="dropdown-menu" aria-labelledby="navbarDropdownAccount">
-								{% if is_granted('IS_AUTHENTICATED_FULLY') %}
-									
-									<li>
-										<a class="dropdown-item" href="{{ path('app_utilisateur') }}">Mon compte</a>
-									</li>
-									<li>
-										<a class="dropdown-item" href="{{ path('app_logout') }}">Déconnexion</a>
-									</li>
-								{% else %}
-									<li>
-										<a class="dropdown-item" href="{{ path('app_login') }}">Connexion</a>
-									</li>
-									<li>
-										<a class="dropdown-item" href="{{ path('app_inscription') }}">Inscription</a>
-									</li>
-								{% endif %}
-							</ul>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdownAccount">
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <li>
+            <a class="dropdown-item" href="{{ path('app_utilisateur') }}">Mon compte</a>
+        </li>
+        <li>
+            <a class="dropdown-item" href="{{ path('app_utilisateur_changer_mdp') }}">Modifier mon mot de passe</a>
+        </li>
+        
+        
+        <!-- Si l'utilisateur est admin, afficher le lien vers la section admin -->
+        {% if is_granted('ROLE_ADMIN') %}
+            <li>
+                <a class="dropdown-item" href="{{ path('admin') }}">Accéder à la section admin</a>
+            </li>
+        {% endif %}
+		<li>
+            <a class="dropdown-item" href="{{ path('app_logout') }}">Déconnexion</a>
+        </li>
+    {% else %}
+       <li>
+            <a class="dropdown-item" href="{{ path('app_inscription') }}">S'inscrire</a>
+        </li>
+        <li>
+            <a class="dropdown-item" href="{{ path('app_login') }}">Se connecter</a>
+        </li>
+    {% endif %}
+</ul>
+
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle navbar-custom main-link" href="#" id="navbarDropdownClub" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -80,16 +94,15 @@
 								<li>
 									<a class="dropdown-item" href="{{ path('app_sponsors') }}">Nos sponsors</a>
 								</li>
-							
+
 							</ul>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle navbar-custom main-link" href="#" id="navbarDropdownLife" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								<b class="navbar-custom">La vie du club</b>
 							</a>
-								
-									
-								
+
+
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdownLife">
 								<li>
 									<a class="dropdown-item" href="{{ path('app_actualites') }}">Actualités</a>
@@ -100,41 +113,26 @@
 							</ul>
 						</li>
 						<a class="nav-link navbar-custom main-link" href="{{ path('app_ressource') }}">
-							<b class="navbar-custom">Ressources</b></a>
-						<a class="nav-link navbar-custom main-link" href="{{ path('app_contact') }}">
-							<b class="navbar-custom">Nous contacter</b></a>
-						<a class="nav-link navbar-custom main-link" href="{{ path('app_horaire_et_tarif') }}">
-							<b class="navbar-custom">Horaires et tarif</b></a>
+							<b class="navbar-custom">Ressources</b>
 						</a>
-					</ul>
-				</div>
+						<a class="nav-link navbar-custom main-link" href="{{ path('app_contact') }}">
+							<b class="navbar-custom">Nous contacter</b>
+						</a>
+						<a class="nav-link navbar-custom main-link" href="{{ path('app_horaire_et_tarif') }}">
+							<b class="navbar-custom">Horaires et tarif</b>
+						</a>
+					</a>
+				</ul>
 			</div>
-		</nav>
-
-		{% block body %}
-	
-
-		{% endblock %}
-
-		<!-- Script d'AOS -->
-		<script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
-
-		<!-- Initialisation d'AOS -->
-		<script>
-			AOS.init({
+		</div>
+	</body>
+</html></nav>{% block body %}{% endblock %}<!-- Script d'AOS --><script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script><!-- Initialisation d'AOS --><script>
+AOS.init({
 duration: 1000, // Temps d'animation
 once: true // Animation déclenchée une seule fois
-});
-		</script>
-	</body>
-
-	<footer class="bg-light text-center py-4">
-		<div class="container">
-			<p>&copy; 2024 Judo Club Isbergues. Tous droits réservés.</p>
-			<p>
-				<a href="{{ path('app_r_g_p_d') }}" class="text-decoration-none">Politique de confidentialité (RGPD)</a>
-				<a href="https://www.facebook.com/JudoClubIsbergues" target="_blank" class="text-decoration-none">Suivez-nous sur Facebook</a>
-			</p>
-		</div>
-	</footer>
-</html>
+});</script></body><footer class="bg-light text-center py-4"><div class="container">
+<p>&copy; 2024 Judo Club Isbergues. Tous droits réservés.</p>
+<p>
+	<a href="{{ path('app_r_g_p_d') }}" class="text-decoration-none">Politique de confidentialité (RGPD)</a>
+	<a href="https://www.facebook.com/JudoClubIsbergues" target="_blank" class="text-decoration-none">Suivez-nous sur Facebook</a>
+</p></div></footer></html>

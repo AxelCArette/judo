@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block head %}
+<meta charset="UTF-8">
+<meta name="description" content="Modifiez votre mot de passe sur le site du Judo Club d'Isbergues. Assurez la sécurité de votre compte en mettant à jour vos informations de connexion.">
+<meta name="keywords" content="changer mot de passe, sécurité, mise à jour mot de passe, Judo Club Isbergues">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Modifier ton mot de passe | Judo Club d'Isbergues">
+<meta property="og:description" content="Changez votre mot de passe pour sécuriser votre compte sur le site du Judo Club d'Isbergues.">
+<meta property="og:image" content="{{ asset('asset/img/judo-club-logo.png') }}">
+<meta property="og:url" content="{{ app.request.uri }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Modifier ton mot de passe | Judo Club d'Isbergues">
+<meta name="twitter:description" content="Sécurisez votre compte sur le site du Judo Club d'Isbergues en modifiant votre mot de passe.">
+<meta name="twitter:image" content="{{ asset('asset/img/judo-club-logo.png') }}">
+{% endblock %}
+
+{% block title %}Modifier ton mot de passe | Judo club Isbergues
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5" data-aos="fade-up">
+    <h1 class="text-center mb-4">Changer de mot de passe</h1>
+    
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            {{ form_start(form, {'attr': {'class': 'needs-validation', 'novalidate': 'novalidate'}}) }}
+            
+            <div class="form-group mb-3">
+                {{ form_label(form.current_password, 'Mot de passe actuel', {'label_attr': {'class': 'form-label'}}) }}
+                {{ form_widget(form.current_password, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.current_password) }}
+            </div>
+
+            <div class="form-group mb-3">
+                {{ form_label(form.new_password, 'Nouveau mot de passe', {'label_attr': {'class': 'form-label'}}) }}
+                {{ form_widget(form.new_password, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.new_password) }}
+            </div>
+
+            <div class="form-group mb-3">
+                {{ form_label(form.confirm_password, 'Confirmer le mot de passe', {'label_attr': {'class': 'form-label'}}) }}
+                {{ form_widget(form.confirm_password, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.confirm_password) }}
+            </div>
+
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary btn-block">Modifier</button>
+            </div>
+            
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000, // Animation duration
+            easing: 'ease-in-out', // Animation easing
+            once: true // Animation should only happen once
+        });
+    </script>
+{% endblock %}

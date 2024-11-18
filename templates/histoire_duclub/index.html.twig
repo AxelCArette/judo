@@ -1,5 +1,21 @@
 {% extends 'base.html.twig' %}
 
+{% block head %}
+<meta charset="UTF-8">
+<meta name="description" content="Découvrez l'histoire du Judo Club d'Isbergues, de sa création à aujourd'hui, et l'évolution de ses présidents, enseignants et judokas formés.">
+<meta name="keywords" content="histoire judo club isbergues, évolution du club, judo Isbergues, enseignants judo, licenciés, ceintures noires, histoire du club de judo">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Historique du club | Judo Club d'Isbergues">
+<meta property="og:description" content="Explorez l'histoire du Judo Club d'Isbergues, son évolution de 1997 à aujourd'hui avec ses présidents, enseignants et les judokas formés au club.">
+<meta property="og:image" content="{{ asset('asset/img/logo.jpg') }}">
+<meta property="og:url" content="{{ app.request.uri }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Historique du club | Judo Club d'Isbergues">
+<meta name="twitter:description" content="Découvrez l'évolution du Judo Club d'Isbergues, de sa création à aujourd'hui, avec les présidents, enseignants et judokas formés.">
+<meta name="twitter:image" content="{{ asset('asset/img/logo.jpg') }}">
+{% endblock %}
+
+
 {% block title %}Historique du club | Judo Club d'Isbergues{% endblock %}
 
 {% block body %}

@@ -17,15 +17,14 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class DashboardController extends AbstractDashboardController
 {
-    // Route d'entrée du dashboard admin
+
     #[Route('/judoclubadmin', name: 'admin')]
     public function index(): Response
     {
-        // Rendu de la vue principale du dashboard
+     
         return $this->render('admin/admin.html.twig');
     }
 
-    // Configuration du tableau de bord
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
@@ -37,15 +36,21 @@ class DashboardController extends AbstractDashboardController
     {
         // Menu principal avec les liens vers les CRUD des entités
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
+        yield MenuItem::linkToUrl('Retour au site', 'fas fa-arrow-left', $this->generateUrl('app_accueil'));
         yield MenuItem ::Section ('Administration');
         yield MenuItem::linkToCrud('Formulaire de contact', 'fas fa-envelope', Contact::class);
         yield MenuItem::linkToCrud('Membres', 'fas fa-users', Membres::class);
         yield MenuItem::linkToCrud('Sponsors', 'fas fa-handshake', Sponsors::class);
         
-        yield MenuItem ::Section ('Photos et actualités');
+        yield MenuItem ::Section ('Photos');
         yield MenuItem::linkToCrud('Album Photos', 'fas fa-images', Album::class);
         yield MenuItem::linkToCrud('Photos', 'fas fa-camera', Photos::class);
+        yield MenuItem::linkToUrl('Voir les albums publiés', 'fas fa-arrow-left', $this->generateUrl('app_albums'));
+        
+        yield MenuItem ::Section ('Actualités');
         yield MenuItem::linkToCrud('Actualités', 'fas fa-newspaper', Actualites::class);
+        yield MenuItem::linkToUrl('Voir les actualités', 'fas fa-arrow-left', $this->generateUrl('app_actualites'));
+        
         yield MenuItem ::Section ('Ressources');
         yield MenuItem::linkToCrud('Ressource', 'fas fa-folder-open', Ressource::class);
     }
