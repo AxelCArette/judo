@@ -35,7 +35,21 @@ class UtilisateurController extends AbstractController
             $description = $form->get('description')->getData();
             $grade = $form->get('grade')->getData();
 
+            // Si un fichier est téléchargé, gérer la photo de profil
             if ($file) {
+                // Si l'utilisateur a déjà une photo de profil, supprimer l'ancienne
+                $oldPhoto = $user->getPhotosDeprofil();
+                if ($oldPhoto) {
+                    // Chemin du fichier existant
+                    $oldFilePath = $this->getParameter('kernel.project_dir') . '/public/' . $oldPhoto;
+                    
+                    // Vérifier si le fichier existe et supprimer
+                    if (file_exists($oldFilePath)) {
+                        unlink($oldFilePath);
+                    }
+                }
+
+                // Enregistrer la nouvelle photo
                 $newFilename = uniqid() . '.' . $file->guessExtension();
                 $file->move(
                     $this->getParameter('kernel.project_dir') . '/public/asset/img/imagedeprofil',

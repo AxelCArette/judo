@@ -2,13 +2,7 @@
     margin: 0;
     padding: 0;
 }
-body {
-    background-image: url('/asset/img/fondjudo.jpg');
-    background-position: center; /* Centrer l'image */
-    background-size: cover; /* Redimensionner l'image pour couvrir toute la zone */
-    background-attachment: fixed; /* Fixe l'image lorsque l'on fait défiler la page */
-    background-repeat: no-repeat; /* Empêche la répétition de l'image */
-}
+
 
 .roboto-thin {
     font-family: "Roboto", sans-serif;
