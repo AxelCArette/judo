@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Classe\Mail;
 use App\Entity\Membres;
 use App\Form\InscriptionType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -30,32 +31,29 @@ class InscriptionController extends AbstractController
 
         $form->handleRequest($request);
 
-        // Vérification du honeypot
         if ($form->isSubmitted() && $form->isValid()) {
             $honeypot = $form->get('honeypot')->getData();
 
             if (!empty($honeypot)) {
-                // Si le honeypot est rempli, rejeter la soumission
                 throw new \Exception('Honeypot détecté, soumission invalide.');
             }
 
-            // Vérifier si l'adresse e-mail est déjà utilisée
             $existingMember = $this->entityManager
                 ->getRepository(Membres::class)
                 ->findOneBy(['adressemail' => $membres->getAdressemail()]);
-
             if ($existingMember) {
                 $this->addFlash('error', 'L\'adresse e-mail est déjà utilisée.');
                 return $this->redirectToRoute('app_inscription');
             }
 
-            // Hachage du mot de passe
             $hashedPassword = $this->passwordHasher->hashPassword($membres, $membres->getMotdepasse());
             $membres->setMotdepasse($hashedPassword);
-
-            // Sauvegarde du membre
             $this->entityManager->persist($membres);
             $this->entityManager->flush();
+
+            $mail = new Mail();
+            $content="Bonjour ".$membres->getPrenom()."<br/> Bienvenue sur le judo club d'isbergues. ";
+            $mail->send($membres->getAdressemail(), $membres->getPrenom(), 'Bienvenue sur le site du judo club d Isbergues',$content);
 
             $this->addFlash('success', 'Inscription réussie.');
             return $this->redirectToRoute('app_login');

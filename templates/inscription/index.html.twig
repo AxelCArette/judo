@@ -19,74 +19,74 @@
 {% block title %}Inscription | Judo Club Isbergues{% endblock %}
 
 {% block body %}
-    <div class="container mt-5">
-        <h1 class="text-center mb-4">Inscription sur le site</h1>
+   <div class="container mt-5" data-aos="fade-up" data-aos-duration="1000">
+    <h1 class="text-center mb-4" data-aos="fade-down" data-aos-duration="1500">Inscription sur le site</h1>
 
-        {% for message in app.session.flashbag().get('error') %}
-            <div class="alert alert-danger">
-                {{ message }}
+    {% for message in app.session.flashbag().get('error') %}
+        <div class="alert alert-danger" data-aos="fade-in" data-aos-duration="1000">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    {% for message in app.session.flashbag().get('success') %}
+        <div class="alert alert-success" data-aos="fade-in" data-aos-duration="1000">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <div class="row justify-content-center">
+        <div class="col-md-6" data-aos="zoom-in" data-aos-duration="1200">
+            {{ form_start(form, {'attr': {'class': 'bg-light p-4 rounded shadow-sm'}}) }}
+
+            <div class="form-group mb-3" data-aos="fade-up" data-aos-duration="1500">
+                {{ form_label(form.nom, 'Nom', {'label_attr': {'class': 'font-weight-bold'}}) }}
+                {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.nom) }}
             </div>
-        {% endfor %}
 
-        {% for message in app.session.flashbag().get('success') %}
-            <div class="alert alert-success">
-                {{ message }}
+            <div class="form-group mb-3" data-aos="fade-up" data-aos-duration="1500">
+                {{ form_label(form.prenom, 'Prénom', {'label_attr': {'class': 'font-weight-bold'}}) }}
+                {{ form_widget(form.prenom, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.prenom) }}
             </div>
-        {% endfor %}
 
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                {{ form_start(form, {'attr': {'class': 'bg-light p-4 rounded shadow-sm'}}) }}
-
-                <div class="form-group mb-3">
-                    {{ form_label(form.nom, 'Nom', {'label_attr': {'class': 'font-weight-bold'}}) }}
-                    {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
-                    {{ form_errors(form.nom) }}
-                </div>
-
-                <div class="form-group mb-3">
-                    {{ form_label(form.prenom, 'Prénom', {'label_attr': {'class': 'font-weight-bold'}}) }}
-                    {{ form_widget(form.prenom, {'attr': {'class': 'form-control'}}) }}
-                    {{ form_errors(form.prenom) }}
-                </div>
-
-                <div class="form-group mb-3">
-                    {{ form_label(form.adressemail, 'Adresse Email', {'label_attr': {'class': 'font-weight-bold'}}) }}
-                    {{ form_widget(form.adressemail, {'attr': {'class': 'form-control'}}) }}
-                    {{ form_errors(form.adressemail) }}
-                </div>
-
-                <div class="form-group mb-3">
-                    {{ form_label(form.motdepasse.first, 'Mot de passe', {'label_attr': {'class': 'font-weight-bold'}}) }}
-                    {{ form_widget(form.motdepasse.first, {'attr': {'class': 'form-control'}}) }}
-                    {{ form_errors(form.motdepasse.first) }}
-                </div>
-
-                <div class="form-group mb-3">
-                    {{ form_label(form.motdepasse.second, 'Confirmer le mot de passe', {'label_attr': {'class': 'font-weight-bold'}}) }}
-                    {{ form_widget(form.motdepasse.second, {'attr': {'class': 'form-control'}}) }}
-                    {{ form_errors(form.motdepasse.second) }}
-                </div>
-
-                <div class="form-group mb-3">
-                    {{ form_label(form.grade, 'Grade', {'label_attr': {'class': 'font-weight-bold'}}) }}
-                    {{ form_widget(form.grade, {'attr': {'class': 'form-control'}}) }}
-                    {{ form_errors(form.grade) }}
-                </div>
-                
-
-                <div class="form-group mb-4">
-                    {{ form_label(form.club, 'Club', {'label_attr': {'class': 'font-weight-bold'}}) }}
-                    {{ form_widget(form.club, {'attr': {'class': 'form-control'}}) }}
-                    {{ form_errors(form.club) }}
-                </div>
-
-                <div class="form-group">
-                    {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary btn-block'}}) }}
-                </div>
-
-                {{ form_end(form) }}
+            <div class="form-group mb-3" data-aos="fade-up" data-aos-duration="1500">
+                {{ form_label(form.adressemail, 'Adresse Email', {'label_attr': {'class': 'font-weight-bold'}}) }}
+                {{ form_widget(form.adressemail, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.adressemail) }}
             </div>
+
+            <div class="form-group mb-3" data-aos="fade-up" data-aos-duration="1500">
+                {{ form_label(form.motdepasse.first, 'Mot de passe', {'label_attr': {'class': 'font-weight-bold'}}) }}
+                {{ form_widget(form.motdepasse.first, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.motdepasse.first) }}
+            </div>
+
+            <div class="form-group mb-3" data-aos="fade-up" data-aos-duration="1500">
+                {{ form_label(form.motdepasse.second, 'Confirmer le mot de passe', {'label_attr': {'class': 'font-weight-bold'}}) }}
+                {{ form_widget(form.motdepasse.second, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.motdepasse.second) }}
+            </div>
+
+            <div class="form-group mb-3" data-aos="fade-up" data-aos-duration="1500">
+                {{ form_label(form.grade, 'Grade', {'label_attr': {'class': 'font-weight-bold'}}) }}
+                {{ form_widget(form.grade, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.grade) }}
+            </div>
+
+            <div class="form-group mb-4" data-aos="fade-up" data-aos-duration="1500">
+                {{ form_label(form.club, 'Club', {'label_attr': {'class': 'font-weight-bold'}}) }}
+                {{ form_widget(form.club, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.club) }}
+            </div>
+
+            <div class="form-group" data-aos="fade-up" data-aos-duration="1500">
+                {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary btn-block'}}) }}
+            </div>
+
+            {{ form_end(form) }}
         </div>
     </div>
+</div>
+
 {% endblock %}

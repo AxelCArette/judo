@@ -19,45 +19,48 @@
 {% block title %}Connexion | Judo Club D'Isbergues{% endblock %}
 
 {% block body %}
-    <div class="container mt-5">
-        <h1 class="h3 mb-3 font-weight-normal text-center">Connexion</h1>
+<div class="container mt-5" data-aos="fade-up" data-aos-duration="1000">
+    <h1 class="h3 mb-3 font-weight-normal text-center" data-aos="fade-down" data-aos-duration="1500">Connexion</h1>
 
-        {% if error %}
-            <div class="alert alert-danger">
-                {{ error.messageKey|trans(error.messageData, 'security') }}
-            </div>
-        {% endif %}
+    {% if error %}
+        <div class="alert alert-danger" data-aos="fade-in" data-aos-duration="1000">
+            {{ error.messageKey|trans(error.messageData, 'security') }}
+        </div>
+    {% endif %}
 
-        {% if app.user %}
-            <div class="mb-3">
-                Vous êtes connecté en tant que {{ app.user.userIdentifier }},
-                <a href="{{ path('app_logout') }}">Déconnexion</a>
-            </div>
-        {% endif %}
+    {% if app.user %}
+        <div class="mb-3" data-aos="fade-in" data-aos-duration="1000">
+            Vous êtes connecté en tant que {{ app.user.userIdentifier }},
+            <a href="{{ path('app_logout') }}">Déconnexion</a>
+        </div>
+    {% endif %}
 
-        <form method="post" class="bg-light p-4 rounded shadow-sm">
-            <div class="form-group mb-3">
-                <label for="inputAdressemail">Votre email</label>
-                <input type="email" value="{{ last_username }}" name="adressemail" id="inputAdressemail" class="form-control" autocomplete="email" required autofocus>
-            </div>
+    <form method="post" class="bg-light p-4 rounded shadow-sm" data-aos="zoom-in" data-aos-duration="1200">
+        <div class="form-group mb-3" data-aos="fade-up" data-aos-duration="1500">
+            <label for="inputAdressemail">Votre email</label>
+            <input type="email" value="{{ last_username }}" name="adressemail" id="inputAdressemail" class="form-control" autocomplete="email" required autofocus>
+        </div>
 
-            <div class="form-group mb-3">
-                <label for="inputPassword">Votre mot de passe</label>
-                <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
-            </div>
+        <div class="form-group mb-3" data-aos="fade-up" data-aos-duration="1500">
+            <label for="inputPassword">Votre mot de passe</label>
+            <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+        </div>
 
-            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-            <div class="form-check mb-3">
-                <input type="checkbox" name="_remember_me" class="form-check-input" id="rememberMe">
-                <label class="form-check-label" for="rememberMe">Se souvenir de moi</label>
-            </div>
+        <div class="form-check mb-3" data-aos="fade-up" data-aos-duration="1500">
+            <input type="checkbox" name="_remember_me" class="form-check-input" id="rememberMe">
+            <label class="form-check-label" for="rememberMe">Se souvenir de moi</label>
+        </div>
 
-            <hr>
+        <hr>
 
-            <button class="btn btn-lg btn-primary btn-block" type="submit">
-                Se connecter
-            </button>
-        </form>
-    </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" data-aos="fade-up" data-aos-duration="1500">
+            Se connecter
+        </button><br><br>
+         <a class="dropdown-item" href="{{ path('app_reset_password') }}">Mot de passe oublier</a>
+    </form>
+          
+</div>
+
 {% endblock %}

@@ -85,34 +85,24 @@ class UtilisateurController extends AbstractController
         $user = $this->getUser();
         $form = $this->createForm(ChangePasswordType::class);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $currentPassword = $form->get('current_password')->getData();
             $newPassword = $form->get('new_password')->getData();
             $confirmPassword = $form->get('confirm_password')->getData();
-
-            // Vérification du mot de passe actuel
             if (!$passwordHasher->isPasswordValid($user, $currentPassword)) {
                 $this->addFlash('error', 'Mot de passe actuel incorrect.');
                 return $this->redirectToRoute('app_utilisateur_changer_mdp');
             }
-
-            // Vérification de la confirmation
             if ($newPassword !== $confirmPassword) {
                 $this->addFlash('error', 'Les nouveaux mots de passe ne correspondent pas.');
                 return $this->redirectToRoute('app_utilisateur_changer_mdp');
             }
-
-            // Hash et sauvegarde du nouveau mot de passe
             $hashedPassword = $passwordHasher->hashPassword($user, $newPassword);
             $user->setMotdepasse($hashedPassword);
-
             $this->entityManager->flush();
             $this->addFlash('success', 'Mot de passe modifié avec succès.');
-
             return $this->redirectToRoute('app_utilisateur');
         }
-
         return $this->render('utilisateur/mdp.html.twig', [
             'form' => $form->createView(),
         ]);
