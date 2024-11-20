@@ -1,0 +1,116 @@
+{% extends 'base.html.twig' %}
+
+{% block head %}
+<meta charset="UTF-8">
+<meta name="description" content="Découvrez les diplômes, le projet et les formations de Philippe Coubronne, membre actif du Judo Club d'Isbergues.">
+<meta name="keywords" content="Philippe Coubronne, judo, diplômes, formations, judo isbergues, projet judo">
+{% endblock %}
+
+{% block title %}Philippe Coubronne | Judo Club D'Isbergues{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <!-- À propos -->
+            <div class="card mb-4 shadow-lg border-light" data-aos="fade-up">
+    <div class="card-body d-flex align-items-center">
+        <!-- Image à gauche avec taille augmentée -->
+        <img src="{{ asset('asset/img/imgbureau/entraineur.jpg') }}" class="card-img-top me-4" alt="Entraîneur" style="width: 250px; height: auto;">
+        
+        <!-- Contenu à droite -->
+        <div>
+            <h2 class="card-title text-primary font-weight-bold mb-4" style="font-size: 2.5rem;">Philippe Coubronne et le judo</h2>
+            <p class="card-text text-muted" style="text-align:center">
+                Judoka depuis 1980, il a pris sa première licence à l'âge de 10 ans au J-C Hazebrouckois.<br> <br>
+                Investi et membre actif, il a participé aux diverses manifestations organisées par le club.<br> <br>
+                Reçu au grade de 1er Dan le 22/04/1990 et licencié au club de Bailleul de 1992 à 2015.<br> <br>
+                Commissaire sportif depuis 12 ans, il est toujours investi pour son département et sa région.<br> <br>
+                Depuis neuf ans, il est licencié au J-C Isbergues.
+            </p>
+        </div>
+    </div>
+</div>
+
+    <!-- Section 2 : Grades -->
+    <div class="card mb-5 shadow-lg border-light" data-aos="fade-left" style="padding: 20px;">
+        <div class="card-body text-center">
+            <h2 class="text-primary font-weight-bold mb-4">Obtention des grades de Philippe Coubronne</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <p class="mb-2">Ceinture noire 1er dan (1990)</p>
+                    <img src="{{ asset('asset/img/imgbureau/entraineur.jpg') }}" class="img-fluid rounded" alt="1er dan" style="width: 200px; height: auto;">
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <p class="mb-2">Ceinture noire 2ème dan (1995)</p>
+                    <img src="{{ asset('asset/img/imgbureau/entraineur.jpg') }}" class="img-fluid rounded" alt="2ème dan" style="width: 200px; height: auto;">
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <p class="mb-2">Ceinture noire 3ème dan (2008)</p>
+                    <img src="{{ asset('asset/img/imgbureau/entraineur.jpg') }}" class="img-fluid rounded" alt="3ème dan" style="width: 200px; height: auto;">
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <p class="mb-2">Ceinture noire 4ème dan (2017)</p>
+                    <img src="{{ asset('asset/img/imgbureau/entraineur.jpg') }}" class="img-fluid rounded" alt="4ème dan" style="width: 200px; height: auto;">
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <p class="mb-2">Ceinture noire 5ème dan (202X)</p>
+                    <img src="{{ asset('asset/img/imgbureau/entraineur.jpg') }}" class="img-fluid rounded" alt="5ème dan" style="width: 200px; height: auto;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 3 : Certifications -->
+    <div class="card mb-5 shadow-lg border-light" data-aos="fade-left" style="padding: 20px;">
+        <div class="card-body text-center">
+            <h2 class="text-primary font-weight-bold mb-4">Certifications en enseignement</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <p class="mb-2">Enseignant CFEB (2015) - Certificat Fédéral d'Étude Bénévole</p>
+                    <img src="{{ asset('asset/img/imgbureau/entraineur.jpg') }}" class="img-fluid rounded" alt="CFEB" style="width: 200px; height: auto;">
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <p class="mb-2">Enseignant d'état</p>
+                    <img src="{{ asset('asset/img/imgbureau/entraineur.jpg') }}" class="img-fluid rounded" alt="Enseignant d'état" style="width: 200px; height: auto;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 4 : Projet professionnel -->
+   <div class="card mb-4 shadow-lg border-light" data-aos="fade-left">
+    <div class="card-body text-center">
+        <h2 class="card-title text-primary font-weight-bold mb-4">Projet professionnel</h2>
+        
+        <p class="card-text">
+            Le cœur du projet professionnel de Philippe Coubronne est de suivre les élèves dans leur apprentissage du judo, autant en judo compétitions qu'en judo loisirs. 
+            Il met toute sa pédagogie dans l'organisation et l'animation des cours pour susciter l'envie et communiquer son enthousiasme dans la pratique du judo. 
+            De cette double implication dépend la pérennité du club de judo d'ISBERGUES.
+        </p>
+
+        <p class="card-text">
+            Chaque année, nous convoquons une Assemblée Générale en fin de saison afin de tirer un bilan de l'activité de l'année écoulée et récompenser nos judokas pour leurs performances sportives et humaines.
+        </p>
+
+        <p class="card-text">
+            Il promeut notre interclubs, qui existe depuis maintenant sept ans. Cela permet de sensibiliser nos jeunes élèves aux rôles à tenir, notamment arbitre et commissaire sportif, en toute convivialité et parfaite entente avec les clubs voisins.
+        </p>
+
+        <p class="card-text">
+            Il participe activement avec les membres du bureau aux différentes manifestations organisées par le club :
+        </p>
+        
+        <ul class="list-unstyled">
+            <li>- Distribution des chocolats à l'occasion de la Fête de Pâques pour nos petits judokas</li>
+            <li>- Goûter pour la Fête de Noël</li>
+        </ul>
+        
+        <p class="card-text">
+            Il collabore également à la recherche de nouveaux sponsors pour notre plaquette publicitaire.
+        </p>
+    </div>
+</div>
+</div>
+</div>
+{% endblock %}

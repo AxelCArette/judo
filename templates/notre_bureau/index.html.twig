@@ -18,20 +18,18 @@
 
 {% block title %}Le Bureau | Judo Club D'isbergues
 {% endblock %}
-
 {% block body %}
 	<div class="container mt-5">
 		<h2 class="text-center mb-4">Notre Bureau</h2>
-		<div
-			class="row justify-content-center">
+		<div class="row justify-content-center">
 			<!-- Carte Président -->
 			<div class="col-md-4 mb-4" data-aos="fade-up" data-aos-duration="1000">
 				<div class="card">
 					<img src="{{ asset('asset/img/imgbureau/president.png') }}" class="card-img-top" alt="Président">
 					<div class="card-body">
-						<h5 class="card-title">Président</h5>
-						<p class="card-text">Frédéric Couvreur<br>
-							- Description brève de ses responsabilités et de son rôle dans le club.</p>
+						<h2 class="card-title">Président</h2>
+						<h3 class="card-title">Frédéric Couvreur</h3>
+						<p class="card-text">- Responsable de la vision et de la stratégie globale du club, il représente l'autorité principale. Le président supervise les activités, soutient les initiatives et veille à maintenir une organisation efficace et respectueuse des valeurs du judo.</p>
 					</div>
 				</div>
 			</div>
@@ -41,10 +39,9 @@
 				<div class="card">
 					<img src="{{ asset('asset/img/imgbureau/tresorier.png') }}" class="card-img-top" alt="Trésorier">
 					<div class="card-body">
-						<h5 class="card-title">Trésorier</h5>
-						<p class="card-text">Gregory Dethilloy
-							<br>
-							- Description brève de ses responsabilités liées à la gestion financière du club.</p>
+						<h2 class="card-title">Trésorier et Community Manager</h2>
+						<h3 class="card-title">Gregory Dethilloy</h3>
+						<p class="card-text">- En charge de la gestion des finances du club, il s'occupe du budget, des cotisations et des dépenses tout en veillant à la transparence des ressources.<br>- En plus de ses responsabilités financières, il gère la communication sur les réseaux sociaux pour promouvoir les événements et maintenir le lien avec les membres et la communauté.</p>
 					</div>
 				</div>
 			</div>
@@ -54,9 +51,10 @@
 				<div class="card">
 					<img src="{{ asset('asset/img/imgbureau/entraineur.jpg') }}" class="card-img-top" alt="Entraîneur">
 					<div class="card-body">
-						<h5 class="card-title">Entraîneur</h5>
-						<p class="card-text">Philippe Coubronne
-							<br>- Description brève de ses responsabilités concernant l'enseignement et l'accompagnement des membres.</p>
+						<h2 class="card-title">Entraîneur</h2>
+						<h3>Philippe Coubronne</h3>
+						<p class="card-text">- Chargé de l'encadrement sportif des membres, il transmet les techniques et valeurs du judo. Il prépare les judokas pour les compétitions et les aide à atteindre leurs objectifs personnels et sportifs.</p>
+						<a href="{{ path('app_philippe_coubronne') }}" class="btn btn-light">Notre entraîneur</a>
 					</div>
 				</div>
 			</div>
@@ -64,12 +62,11 @@
 			<!-- Carte Secrétaire -->
 			<div class="col-md-4 mb-4" data-aos="fade-up" data-aos-duration="1600">
 				<div class="card">
-					<img src="{{ asset('images/secretary.jpg') }}" class="card-img-top" alt="Secrétaire">
+					<img src="{{ asset('asset/img/imgbureau/secretary.jpg') }}" class="card-img-top" alt="Secrétaire">
 					<div class="card-body">
-						<h5 class="card-title">Secrétaire</h5>
-						<p class="card-text">Pascale Couvreur-Bizet
-							<br>
-							- Description brève de ses responsabilités administratives et organisationnelles.</p>
+						<h2 class="card-title">Secrétaire</h2>
+						<h3>Pascale Couvreur-Bizet</h3>
+						<p class="card-text">- S'occupe de la gestion administrative du club, assure la coordination des réunions et rédige les comptes rendus. Elle veille également à maintenir une communication fluide entre les membres.</p>
 					</div>
 				</div>
 			</div>
@@ -79,33 +76,30 @@
 				<div class="card">
 					<img src="{{ asset('asset/img/imgbureau/photographe.jpg') }}" class="card-img-top" alt="Photographe">
 					<div class="card-body">
-						<h5 class="card-title">Photographe</h5>
-						<p class="card-text">Chloé Coubronne
-							<br>
-							- Description brève de son rôle dans la captation des moments clés du club.</p>
+						<h2 class="card-title">Photographe</h2>
+						<h3>Chloé Coubronne</h3>
+						<p class="card-text">- Immortalise les moments forts du club, que ce soit lors des entraînements, compétitions ou événements spéciaux. Elle contribue à la valorisation du club à travers des visuels de qualité.</p>
+						<a href="https://www.facebook.com/profile.php?id=100089997092679&locale=fr_FR" target="_blank" class="btn btn-light custom-btn">Son Facebook</a>
+							<a href="https://www.instagram.com/chloe.coubronne.photographe/" target="_blank"  class="btn btn-light custom-btn">Son Instagram</a>
+
 					</div>
 				</div>
 			</div>
 
 			<!-- Carte Webdesigner -->
 			<div class="col-md-4 mb-4" data-aos="fade-up" data-aos-duration="2000">
-    <div class="card">
-        <img src="{{ asset('asset/img/imgbureau/devweb.png') }}" class="card-img-top" alt="Webdesigner">
-        <div class="card-body">
-            <h2 class="card-title">Développeur web</h2>
-           <h3>Carette Axel</h3>
-                
-				 <p class="card-text">
-                
-                - En charge de la conception et du développement du site web du club, assurant sa fonctionnalité, son design et son accessibilité.
-                <br>
-                Il veille à l'optimisation de l'expérience utilisateur et à la gestion de l'image du club en ligne, tout en maintenant une communication fluide et moderne avec les membres.
-            </p>
-            <a href="https://www.linkedin.com/in/axel-carette-dev/" target="_blank" class="btn btn-primary">Voir son profil LinkedIn</a>
-        </div>
-    </div>
-</div>
-
+				<div class="card">
+					<img src="{{ asset('asset/img/imgbureau/devweb.png') }}" class="card-img-top" alt="Webdesigner">
+					<div class="card-body">
+						<h2 class="card-title">Développeur web</h2>
+						<h3>Carette Axel</h3>
+						<p class="card-text">Responsable de la création et de la maintenance du site web du club. Il garantit une plateforme moderne, fonctionnelle et accessible, en travaillant sur le design, l'optimisation et les mises à jour régulières. Il joue un rôle clé dans la visibilité numérique du club.</p>
+						<a href="https://www.linkedin.com/in/axel-carette-dev/" target="_blank" class="btn btn-light">Son profil LinkedIn</a>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-
 {% endblock %}
+
+

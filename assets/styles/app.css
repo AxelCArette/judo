@@ -654,3 +654,47 @@ input.form-control:focus, select.form-control:focus {
 .privacy-policy main {
     padding: 20px;
 }
+.custom-btn {
+    background-color: #f4f4f4;
+    color: #333;
+    border: 2px solid #333;
+    padding: 10px 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+
+  .custom-btn:hover {
+    background-color: #333;
+    color: #fff;
+    border-color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+
+  .custom-btn01 {
+    background: linear-gradient(45deg, #ff7eb3, #ff758c);
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 12px 25px;
+    text-transform: uppercase;
+    border-radius: 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .custom-btn01:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(45deg, #ff758c, #ff4f75);
+  }
+
+  .custom-btn01:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  }
