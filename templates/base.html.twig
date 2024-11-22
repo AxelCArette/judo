@@ -15,15 +15,42 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="{{ asset('build/vendor.css') }}">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 	<link href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" rel="stylesheet">
 	<style>
-		body {
-			background-image: url('/asset/img/fondjudo.jpg');
-			background-position: center; /* Centrer l'image */
-			background-size: cover; /* Redimensionner l'image pour couvrir toute la zone */
-			background-attachment: fixed; /* Fixe l'image lorsque l'on fait défiler la page */
-			background-repeat: no-repeat; /* Empêche la répétition de l'image */
-		}
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    background-image: url('/asset/img/fondjudo.jpg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+main {
+    flex: 1; /* Force le contenu principal à occuper tout l'espace disponible */
+}
+
+footer {
+    position: relative; /* S'assurer que le footer se positionne correctement */
+    background-color: rgba(255, 255, 255, 0.2); /* Fond blanc semi-transparent */
+    backdrop-filter: blur(10px); /* Effet de flou */
+    -webkit-backdrop-filter: blur(10px); /* Compatibilité Safari */
+    text-align: center;
+    padding: 1rem 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.2); /* Bordure subtile */
+    z-index: 1; /* Optionnel pour le positionnement */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.9); /* Ombre douce */
+}
+
+
 	</style>
 {# Site créer par AXEL CARETTE #}
 
@@ -130,13 +157,17 @@
 			</a>
 		</ul>
 	</div>
-</div></body></html></nav>{% block body %}{% endblock %}<!-- Script d'AOS -->
+</div></body></html></nav>
+  <main>
+{% block body %}{% endblock %}
+</main>
+<!-- Script d'AOS -->
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script><!-- Initialisation d'AOS -->
 <script>AOS.init({
 duration: 1000, // Temps d'animation
 once: true // Animation déclenchée une seule fois
 });</script></body>
-<footer class="bg-light text-center py-4">
+<footer>
     <div class="container">
         <div class="row">
 

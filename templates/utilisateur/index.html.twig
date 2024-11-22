@@ -15,24 +15,24 @@
 <meta name="twitter:image" content="{{ asset(photoProfil ? photoProfil : 'asset/img/default-profile.jpg') }}">
 {% endblock %}
 
-
 {% block title %}Profil de {{ prenom }}{% endblock %}
 
 {% block body %}
-<div class="profil-container container mt-4">
-    <div class="row justify-content-center">
-        <!-- Colonne vide (1) à gauche pour l'écart -->
+
+<div class="profil-container">
+    <div class="row justify-content-center align-items-start g-4"> <!-- Alignement vertical et espacement -->
+
         <div class="col-1"></div>
 
-        <!-- Carte de profil à gauche (5 colonnes) -->
-        <div class="col-5 mb-4">
-            <div class="profil-card {{ grade|replace({' ': ''}) }}">
+    
+        <!-- Carte de profil -->
+        <div class="col-5">
+            <div class="profil-card {{ grade|replace({' ': ''}) }} mb-6"> <!-- Ajout d'une marge au bas de la carte -->
                 <h3 class="profil-name">{{ prenom }}</h3>
                 <div class="profil-photo">
                     {% if photoProfil %}
                         <div class="border-layer"></div>
-                        <div class="border-layer"></div>
-                        <div class="border-layer"></div>
+
                         <img src="{{ asset(photoProfil) }}" alt="Photo de profil" class="profil-img" />
                     {% else %}
                         <p>Aucune photo de profil</p>
@@ -51,12 +51,11 @@
             </div>
         </div>
 
-        <!-- Colonne vide (1) pour l'écart -->
         <div class="col-1"></div>
-
-        <!-- Formulaire de mise à jour à droite (5 colonnes) -->
+        
         <div class="col-5">
-            <div class="profil-update-section">
+        
+            <div class="profil-update-section mb-4">
                 <h3>Mettre à jour votre profil</h3>
                 {{ form_start(form) }}
                     <div class="form-group mb-3">
@@ -68,25 +67,18 @@
                     <div class="form-group mb-3">
                         {{ form_row(form.grade, {'attr': {'class': 'form-control'}}) }}
                     </div>
-                    <!-- Bouton de mise à jour -->
-                    <button type="submit" class="btn btn-primary w-100">Mettre à jour</button>
+                    <button type="submit" class="custom-btn">Mettre à jour</button>
                 {{ form_end(form) }}
-            </div>
-
-            <!-- Liens de navigation sous le formulaire -->
-            <div class="mt-4">
-                <!-- Lien vers la modification du mot de passe -->
-                <a href="{{ path('app_utilisateur_changer_mdp') }}" class="btn btn-secondary w-100 mb-2">Modifier le mot de passe</a>
-                
-                <!-- Lien vers la section admin si l'utilisateur est admin -->
-                {% if is_granted('ROLE_ADMIN') %}
-                    <a href="{{ path('admin') }}" class="btn btn-warning w-100">Accéder à la section admin</a>
-                {% endif %}
-            </div>
+        </div>
+            
+            <a href="{{ path('app_utilisateur_changer_mdp') }}" class="profil-update-section  btn btn-light custom-btn">Modifier le mot de passe</a>
+            {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('admin') }}" class="profil-update-section  btn btn-light custom-btn">Accéder à la section admin</a>
+            {% endif %}
         </div>
 
-        <!-- Colonne vide (1) à droite pour l'écart -->
-        <div class="col-1"></div>
     </div>
 </div>
+
+
 {% endblock %}

@@ -163,7 +163,7 @@
             
 
 .profil-card {
-    position: relative;
+  
     width: 500px; /* Largeur fixée */
     height: 700px; /* Hauteur augmentée pour rendre la carte plus haute */
     padding: 40px; /* Augmenter l'espacement intérieur pour l'adapter à la nouvelle hauteur */
@@ -321,14 +321,14 @@
 }
 
 .profil-name {
-    font-size: 30px; /* Plus grand pour le nom */
+    font-size: 30px;
     background: linear-gradient( #f0f0f0, #CBCBCB);
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5); /* Ombre subtile */
-    padding: 5px 10px; /* Ajuste l'espacement autour du texte */
-    border-radius: 5px; /* Coins arrondis pour un effet esthétique */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5); 
+    padding: 5px 10px; 
+    border-radius: 5px; 
     text-align: center;
-    color: black; /* Couleur du texte */
-    font-weight: bold; /* Style en gras */
+    color: black;
+    font-weight: bold;
 }
 
 .profil-description {
@@ -340,8 +340,7 @@
 
 /* Style pour la section de mise à jour */
 .profil-update-section {
-    margin-top: 30px;
-    padding: 20px;
+    margin-left: 50px;
     border: 1px solid #ccc;
     border-radius: 10px;
     background-color: #fafafa;
@@ -353,33 +352,6 @@
     margin-bottom: 20px;
 }
 
-.profil-update-section .form-row {
-    margin-bottom: 15px;
-}
-
-.profil-update-section .btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #2196f3;
-    border: none;
-    color: white;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.profil-update-section .btn:hover {
-    background-color: #1976d2;
-}
-.profil-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-
-}
-
-/* Carte de profil */
 .profil-card {
     position: relative;
     width: 500px; /* Largeur fixée */
@@ -429,39 +401,18 @@
     background-color: #fafafa;
 }
 
-.profil-update-section h3 {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
 .profil-update-section .form-row {
     margin-bottom: 15px;
 }
 
-.profil-update-section .btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #2196f3;
-    border: none;
-    color: white;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-}
 
-.profil-update-section .btn:hover {
-    background-color: #1976d2;
-}
 
 input.form-control:focus, select.form-control:focus {
     border-color: #007bff;
     box-shadow: 0 0 0 0.25rem rgba(38, 143, 255, 0.5);
 }
 
-.btn-block {
-    margin-top: 15px;
-}
+
 /* Styles globaux */
 .page-title {
     text-align: center;
@@ -499,6 +450,11 @@ input.form-control:focus, select.form-control:focus {
     font-weight: bold;
     color: #2196f3;
     margin-bottom: 10px;
+}
+   .profil-container {
+    margin-right: 5px;
+    flex-direction: column;
+    gap: 30px; /* Espace vertical entre les éléments */
 }
 
 /* Logo du sponsor */
@@ -658,43 +614,62 @@ input.form-control:focus, select.form-control:focus {
     background-color: #f4f4f4;
     color: #333;
     border: 2px solid #333;
-    padding: 10px 20px;
+    padding: 5px 10px;
     font-weight: bold;
     text-transform: uppercase;
-    border-radius: 25px;
+    border-radius: 15px;
     transition: all 0.3s ease;
     text-decoration: none;
-  }
+}
 
-  .custom-btn:hover {
+.custom-btn:hover {
     background-color: #333;
-    color: #fff;
+    color:black;
     border-color: #333;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
+}
 
-
-  .custom-btn01 {
-    background: linear-gradient(45deg, #ff7eb3, #ff758c);
-    color: white;
+.custom-btn01 {
+    background-color: #f4f4f4;
+    color: red;
+    border: 2px solid #333;
+    padding: 5px 10px;
     font-weight: bold;
-    border: none;
-    padding: 12px 25px;
     text-transform: uppercase;
-    border-radius: 50px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 15px;
+    transition: all 0.3s ease;
     text-decoration: none;
-    display: inline-block;
-  }
+}
 
-  .custom-btn01:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-    background: linear-gradient(45deg, #ff758c, #ff4f75);
-  }
+.custom-btn02 {
+    background-color: #f4f4f4;
+    color: purple;
+    border: 2px solid #333;
+    padding: 5px 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
 
-  .custom-btn01:active {
-    transform: translateY(1px);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-  }
+.custom-btn:hover {
+    background-color: #333;
+    color:white;
+    border-color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.modal-backdrop.show {
+    backdrop-filter: blur(100px); /* Blurre le fond */
+    background-color: rgba(0, 0, 0, 0.7); /* Fond noir semi-transparent */
+}
+
+.carousel-item img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.carousel-inner img {
+    object-fit: contain; /* Garder l'image dans le carrousel sans déformation */
+}

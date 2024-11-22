@@ -15,10 +15,33 @@
 <meta name="twitter:image" content="{{ asset('asset/img/logo.jpg') }}">
 {% endblock %}
 
+{% block title %}Photos de {{ album.name }} | Judo Club D'isbergues{% endblock %}
 
-{% block title %}Photos de {{ album.name }} | Judo Club D'isbergues{% endblock %}
 
 {% block body %}
+
+<style>
+/* Images de la galerie sur la page de base */
+.photo-wrapper img {
+    width: 100%;
+    height: 200px; /* Taille uniforme pour toutes les images */
+    object-fit: cover; /* Cela va couper l'image si nécessaire pour la redimensionner sans la déformer */
+    border-radius: 10px; /* Pour garder un aspect esthétique */
+}
+
+/* Images dans le carrousel modale */
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+
+    max-height: 1080px; /* Assurer que l'image reste dans les dimensions 1920x1080 */
+}
+
+
+</style>
+
+
+
     <div class="container mt-4">
         <h1 class="text-center mb-4">Photos de l'album : {{ album.name }}</h1>
 
@@ -28,13 +51,15 @@
                     {% for url in photo.url %}
                         <div class="col-md-2 mb-4 d-flex justify-content-center" data-aos="fade-up">
                             <div class="photo-wrapper">
-                                <img src="{{ asset('asset/img/photoChloe/' ~ url) }}" class="img-fluid rounded shadow" alt="{{ photo.description }}">
+                                <a href="#carouselExample" data-bs-toggle="modal" data-bs-target="#carouselModal" data-photo="{{ url }}">
+                                    <img src="{{ asset('asset/img/photoChloe/' ~ url) }}" class="img-fluid rounded shadow" alt="{{ photo.description }}">
+                                </a>
                                 {% if photo.description %}
                                     <p class="text-center mt-2 text-muted">{{ photo.description }}</p>
                                 {% endif %}
                             </div>
                         </div>
-                        
+
                         {% if loop.index % 5 == 0 %}
                             </div><div class="row">
                         {% endif %}
@@ -44,5 +69,38 @@
         {% else %}
             <p class="text-center text-muted">Aucune photo publiée disponible pour cet album.</p>
         {% endif %}
+    </div>
+
+    <div class="text-center mb-4">
+        <a href="{{ path('app_albums') }}" class="btn btn-light custom-btn">Retour aux albums</a>
+    </div>
+
+    <!-- Modal pour Carrousel -->
+    <div class="modal fade" id="carouselModal" tabindex="-1" aria-labelledby="carouselModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            {% for photo in photos %}
+                                {% for url in photo.url %}
+                                    <div class="carousel-item {% if loop.first %} active {% endif %}">
+                                        <img src="{{ asset('asset/img/photoChloe/' ~ url) }}" class="d-block w-100" alt="{{ photo.description }}">
+                                    </div>
+                                {% endfor %}
+                            {% endfor %}
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}

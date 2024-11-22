@@ -36,7 +36,7 @@
 								<h5 class="card-title">{{ actualite.Titre }}</h5>
 								<p class="card-text">{{ actualite.Contenu | slice(0, 150) }}...</p>
 								<p class="text-muted">{{ actualite.datePublication|date('d/m/Y') }}</p>
-								<a href="{{ path('app_actualite_detail', {'id': actualite.id}) }}" class="btn btn-primary mt-auto">Lire plus</a>
+								<a href="{{ path('app_actualite_detail', {'id': actualite.id}) }}" class="btn btn-light custom-btn">Lire plus</a>
 							</div>
 						</div>
 					</div>
