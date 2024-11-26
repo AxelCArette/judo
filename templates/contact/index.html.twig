@@ -15,12 +15,16 @@
 <meta name="twitter:image" content="{{ asset('asset/img/logo.jpg') }}">
 {% endblock %}
 
-
 {% block title %}Contactez-nous | Judo Club d'Isbergues{% endblock %}
 
 {% block body %}
 <div class="container my-5" data-aos="fade-up">
     <h1 class="mb-4 text-center" data-aos="fade-down">Contactez-nous</h1>
+    <p class="text-center mb-4" data-aos="fade-up" data-aos-duration="1000">
+        Si vous avez des questions ou souhaitez obtenir plus d'informations sur notre club, n'hésitez pas à nous contacter ! <br>
+        Remplissez le formulaire ci-dessous, ou rejoignez-nous directement sur nos réseaux sociaux pour une réponse rapide. <br>
+        Nous sommes à votre écoute pour vous aider.
+    </p>
 
     {% if app.session.flashBag.has('success') %}
         <div class="alert alert-success alert-dismissible fade show" role="alert" data-aos="zoom-in">
@@ -61,7 +65,9 @@
                     <div class="mb-3" data-aos="zoom-in" data-aos-delay="900">
                         {{ form_row(form.textedelapersonne, {'attr': {'class': 'form-control', 'placeholder': 'Votre message'}}) }}
                     </div>
-                    <button type="submit" class="profil-update-section  btn btn-light custom-btn" data-aos="fade-up" data-aos-delay="1000">Envoyer</button>
+                    <div class="mb-3 text-center">
+                        <button type="submit" class="btn btn-light custom-btn">Envoyer</button>
+                    </div>
                     {{ form_end(form) }}
                 </div>
             </div>

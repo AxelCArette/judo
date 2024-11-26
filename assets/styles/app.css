@@ -3,7 +3,6 @@
     padding: 0;
 }
 
-
 .roboto-thin {
     font-family: "Roboto", sans-serif;
     font-weight: 100;
@@ -78,107 +77,126 @@
 
 .navbar-custom,
 .navbar-nav {
-    background-color: #001070 ;
+    background-color: #001070;
 }
+
 .navbar-custom {
-				display: flex;
-				justify-content: center; /* Centre horizontalement */
-				align-items: center; /* Centre verticalement */
-			}
+    display: flex;
+    justify-content: center;
+    /* Centre horizontalement */
+    align-items: center;
+    /* Centre verticalement */
+}
 
-			.navbar-nav {
-				display: flex;
-				justify-content: center; /* Centre horizontalement */
-				align-items: center; /* Centre verticalement */
-			}
+.navbar-nav {
+    display: flex;
+    justify-content: center;
+    /* Centre horizontalement */
+    align-items: center;
+    /* Centre verticalement */
+}
 
-			.navbar-brand {
-				margin-right: 50px; /* Ajouter un espacement entre l'image et les éléments du menu */
-			}
+.navbar-brand {
+    margin-right: 50px;
+    /* Ajouter un espacement entre l'image et les éléments du menu */
+}
 
-			.nav-item {
-				margin: 0 15px; /* Ajouter un espacement entre les éléments du menu */
-			}
+.nav-item {
+    margin: 0 15px;
+    /* Ajouter un espacement entre les éléments du menu */
+}
 
-			/* Optionnel: ajuster la taille de l'image pour un meilleur alignement */
-			.navbar-brand img {
-				width: 75px;
-				height: 75px;
-			}
-            .profil-photo {
-                position: relative;
-                width: 100%;
-                height: auto;
-                perspective: 1000px; /* Perspective pour effet 3D */
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-            
-            /* Photo reculée */
-            .profil-photo img {
-                width: 80%;
-                transform: translateZ(-200px); /* Photo reculée en arrière-plan */
-                box-shadow: inset 0px 0px 50px rgba(0, 0, 0, 0.5); /* Ombre interne pour effet de profondeur */
-                border-radius: 10px;
-                transition: transform 0.5s ease, box-shadow 0.5s ease;
-            }
-            
-            /* Bordures pour effet de cadre en profondeur */
-            .profil-photo .border-layer {
-                position: absolute;
-                border: 3px solid rgba(255, 255, 255, 0.6);
-                border-radius: 10px;
-                box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
-            }
-            
-            /* Couche la plus proche */
-            .profil-photo .border-layer:nth-child(1) {
-                width: 90%;
-                height: 90%;
-                transform: translateZ(-50px);
-            }
-            
-            /* Couche intermédiaire */
-            .profil-photo .border-layer:nth-child(2) {
-                width: 95%;
-                height: 95%;
-                transform: translateZ(-100px);
-                border: 2px solid rgba(255, 255, 255, 0.4);
-            }
-            
-            /* Couche plus profonde */
-            .profil-photo .border-layer:nth-child(3) {
-                width: 100%;
-                height: 100%;
-                transform: translateZ(-150px);
-                border: 1px solid rgba(255, 255, 255, 0.2);
-            }
-            
-            /* Interaction : photo remonte légèrement */
-            .profil-photo:hover img {
-                transform: translateZ(-100px); /* La photo avance un peu */
-                box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.4);
-            }
-            
+.navbar-brand img {
+    height: 75px;
+}
+
+.profil-photo {
+    position: relative;
+    width: 100%;
+    height: auto;
+    perspective: 1000px;
+    /* Perspective pour effet 3D */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Photo reculée */
+.profil-photo img {
+    width: 80%;
+    transform: translateZ(-200px);
+    /* Photo reculée en arrière-plan */
+    box-shadow: inset 0px 0px 50px rgba(0, 0, 0, 0.5);
+    /* Ombre interne pour effet de profondeur */
+    border-radius: 10px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Bordures pour effet de cadre en profondeur */
+.profil-photo .border-layer {
+    position: absolute;
+    border: 3px solid rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Couche la plus proche */
+.profil-photo .border-layer:nth-child(1) {
+    width: 90%;
+    height: 90%;
+    transform: translateZ(-50px);
+}
+
+/* Couche intermédiaire */
+.profil-photo .border-layer:nth-child(2) {
+    width: 95%;
+    height: 95%;
+    transform: translateZ(-100px);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+/* Couche plus profonde */
+.profil-photo .border-layer:nth-child(3) {
+    width: 100%;
+    height: 100%;
+    transform: translateZ(-150px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Interaction : photo remonte légèrement */
+.profil-photo:hover img {
+    transform: translateZ(-100px);
+    /* La photo avance un peu */
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.4);
+}
+
 
 .profil-card {
-  
-    width: 500px; /* Largeur fixée */
-    height: 700px; /* Hauteur augmentée pour rendre la carte plus haute */
-    padding: 40px; /* Augmenter l'espacement intérieur pour l'adapter à la nouvelle hauteur */
-    border-radius: 15px; /* Coins arrondis */
-    color: black; /* Texte en noir */
+
+    width: 500px;
+    /* Largeur fixée */
+    height: 700px;
+    /* Hauteur augmentée pour rendre la carte plus haute */
+    padding: 40px;
+    /* Augmenter l'espacement intérieur pour l'adapter à la nouvelle hauteur */
+    border-radius: 15px;
+    /* Coins arrondis */
+    color: black;
+    /* Texte en noir */
     overflow: hidden;
-    background-size: 200% 200%; /* Taille du fond ajustée pour le mouvement circulaire */
-    animation: gradientMove 40s ease-in-out infinite; /* Animation du mouvement du dégradé plus lente */
+    background-size: 200% 200%;
+    /* Taille du fond ajustée pour le mouvement circulaire */
+    animation: gradientMove 40s ease-in-out infinite;
+    /* Animation du mouvement du dégradé plus lente */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
+
 .profil-description,
 .profil-grade,
 .profil-card h3 {
-    border-radius:15px;
+    border-radius: 15px;
 }
+
 .hidden {
     display: none !important;
 }
@@ -190,18 +208,22 @@
         background-position: 100% 100%;
         background-color: #fbc02d;
     }
+
     25% {
         background-position: 200% 0%;
         background-color: #ff5722;
     }
+
     50% {
         background-position: 300% 100%;
         background-color: #388e3c;
     }
+
     75% {
         background-position: 400% 0%;
         background-color: #2196f3;
     }
+
     100% {
         background-position: 500% 100%;
         background-color: #fbc02d;
@@ -269,8 +291,10 @@
 
 .profil-card.Marron {
     background: linear-gradient(45deg, #ff4101, #6b2f2f, #a95b41, #170f0c);
-    background-size: 300% 300%; /* Augmente la taille du fond pour accentuer le mouvement de l'animation */
-    animation: gradientMove 6s ease infinite; /* Animation plus rapide pour accentuer l'effet */
+    background-size: 300% 300%;
+    /* Augmente la taille du fond pour accentuer le mouvement de l'animation */
+    animation: gradientMove 6s ease infinite;
+    /* Animation plus rapide pour accentuer l'effet */
 }
 
 .profil-card.Noire1erdan {
@@ -312,29 +336,32 @@
 /* Style pour la photo de profil */
 .profil-photo img {
     width: 100%;
-    
+
 }
 
 .profil-info {
     margin-top: 15px;
-    text-align: center; /* Alignement du texte de la description */
+    text-align: center;
+    /* Alignement du texte de la description */
 }
 
 .profil-name {
     font-size: 30px;
-    background: linear-gradient( #f0f0f0, #CBCBCB);
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5); 
-    padding: 5px 10px; 
-    border-radius: 5px; 
+    background: linear-gradient(#f0f0f0, #CBCBCB);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
     text-align: center;
     color: black;
     font-weight: bold;
 }
 
 .profil-description {
-    font-size: 16px; /* Taille du texte un peu plus grande */
+    font-size: 16px;
+    /* Taille du texte un peu plus grande */
     margin-top: 10px;
-    color: black; /* Texte en noir */
+    color: black;
+    /* Texte en noir */
     text-align: center;
 }
 
@@ -354,14 +381,17 @@
 
 .profil-card {
     position: relative;
-    width: 500px; /* Largeur fixée */
-    height: 700px; /* Hauteur augmentée */
+    width: 500px;
+    /* Largeur fixée */
+    height: 700px;
+    /* Hauteur augmentée */
     padding: 40px;
     border-radius: 15px;
     color: black;
     overflow: hidden;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)); /* Gradient de fond avec transparence */
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3));
+    /* Gradient de fond avec transparence */
 }
 
 /* Image de profil */
@@ -372,22 +402,31 @@
     position: relative;
     margin-top: 15px;
     padding: 15px;
-    background: rgba(255, 255, 255, 0.5); /* Fond semi-transparent pour l'effet flou */
+    background: rgba(255, 255, 255, 0.5);
+    /* Fond semi-transparent pour l'effet flou */
     border-radius: 10px;
-    backdrop-filter: blur(5px); /* Flou du fond */
+    backdrop-filter: blur(5px);
+    /* Flou du fond */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .profil-grade {
-    font-size: 20px; /* Plus grand pour le nom */
-    background: linear-gradient( #f0f0f0, #CBCBCB);
-    padding: 5px 10px; /* Ajuste l'espacement autour du texte */
-    border-radius: 5px; /* Coins arrondis pour un effet esthétique */
+    font-size: 20px;
+    /* Plus grand pour le nom */
+    background: linear-gradient(#f0f0f0, #CBCBCB);
+    padding: 5px 10px;
+    /* Ajuste l'espacement autour du texte */
+    border-radius: 5px;
+    /* Coins arrondis pour un effet esthétique */
     text-align: center;
-    color: black; /* Couleur du texte */
-    font-weight: bold; /* Style en gras */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+    color: black;
+    /* Couleur du texte */
+    font-weight: bold;
+    /* Style en gras */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    /* Ombre subtile */
 }
+
 .profil-description {
     font-size: 16px;
     color: black;
@@ -400,20 +439,15 @@
     border-radius: 10px;
     background-color: #fafafa;
 }
-
 .profil-update-section .form-row {
     margin-bottom: 15px;
 }
-
-
-
-input.form-control:focus, select.form-control:focus {
+input.form-control:focus,
+select.form-control:focus {
     border-color: #007bff;
     box-shadow: 0 0 0 0.25rem rgba(38, 143, 255, 0.5);
 }
 
-
-/* Styles globaux */
 .page-title {
     text-align: center;
     font-size: 2.5rem;
@@ -451,10 +485,12 @@ input.form-control:focus, select.form-control:focus {
     color: #2196f3;
     margin-bottom: 10px;
 }
-   .profil-container {
+
+.profil-container {
     margin-right: 5px;
     flex-direction: column;
-    gap: 30px; /* Espace vertical entre les éléments */
+    gap: 30px;
+    /* Espace vertical entre les éléments */
 }
 
 /* Logo du sponsor */
@@ -494,13 +530,15 @@ input.form-control:focus, select.form-control:focus {
     color: #888;
     font-size: 1.2rem;
 }
+
 .main-link {
     color: white !important;
 }
 
 .banner-image {
     width: 100%;
-    object-fit: cover; /* Recouvre la zone en ajustant le contenu */
+    object-fit: cover;
+    /* Recouvre la zone en ajustant le contenu */
 }
 
 /* Styles généraux des sections */
@@ -511,7 +549,9 @@ input.form-control:focus, select.form-control:focus {
     gap: 30px;
 }
 
-.activities, .club-values, .coach {
+.activities,
+.club-values,
+.coach {
     display: flex;
     align-items: center;
     gap: 30px;
@@ -519,14 +559,18 @@ input.form-control:focus, select.form-control:focus {
 }
 
 /* Contenu texte dans chaque section */
-.activities-content, .club-values-content, .coach-content {
+.activities-content,
+.club-values-content,
+.coach-content {
     font-size: 1.1rem;
     line-height: 1.6;
     max-width: 500px;
 }
 
 /* Images des sections */
-.activity-image, .club-image, .coach-image {
+.activity-image,
+.club-image,
+.coach-image {
     flex: 1;
     max-width: 500px;
     height: auto;
@@ -534,7 +578,9 @@ input.form-control:focus, select.form-control:focus {
 }
 
 /* Ajouter des animations AOS si nécessaire */
-[data-aos="fade-left"], [data-aos="fade-right"], [data-aos="fade-down"] {
+[data-aos="fade-left"],
+[data-aos="fade-right"],
+[data-aos="fade-down"] {
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
 }
@@ -542,63 +588,68 @@ input.form-control:focus, select.form-control:focus {
 [data-aos].aos-animate {
     opacity: 1;
 }
+
 .fondbanniere {
-  
+
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     width: 100%;
 }
+
 .rounded-background {
     background-color: white;
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 .privacy-policy {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #f9f9f9; /* Fond doux pour le conteneur */
+    background-color: #f9f9f9;
+    /* Fond doux pour le conteneur */
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .privacy-policy h1 {
-    color: #2b3a42; /* Couleur d'accentuation pour le titre principal */
+    color: #2b3a42;
+    /* Couleur d'accentuation pour le titre principal */
     font-size: 2rem;
     text-align: center;
     margin-bottom: 1em;
 }
 
 .privacy-policy h2 {
-    color: #4a6572; /* Couleur subtile pour les sous-titres */
+    color: #4a6572;
+    /* Couleur subtile pour les sous-titres */
     font-size: 1.5rem;
     margin-top: 1.5em;
     margin-bottom: 0.5em;
-    border-left: 4px solid #2b3a42; /* Barre à gauche pour accentuer les sections */
+    border-left: 4px solid #2b3a42;
+    /* Barre à gauche pour accentuer les sections */
     padding-left: 10px;
 }
 
 .privacy-policy p {
     margin-bottom: 1em;
 }
-
 .privacy-policy ul {
     list-style-type: none;
     padding-left: 0;
     margin-bottom: 1.5em;
 }
-
 .privacy-policy ul li {
     padding-left: 20px;
     position: relative;
     margin-bottom: 0.8em;
 }
-
 .privacy-policy ul li::before {
     content: '•';
-    color: #2b3a42; /* Couleur d'accentuation pour les puces */
+    color: #2b3a42;
+    /* Couleur d'accentuation pour les puces */
     position: absolute;
     left: 0;
 }
@@ -610,6 +661,7 @@ input.form-control:focus, select.form-control:focus {
 .privacy-policy main {
     padding: 20px;
 }
+
 .custom-btn {
     background-color: #f4f4f4;
     color: #333;
@@ -624,11 +676,10 @@ input.form-control:focus, select.form-control:focus {
 
 .custom-btn:hover {
     background-color: #333;
-    color:black;
+    color: black;
     border-color: #333;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
 .custom-btn01 {
     background-color: #f4f4f4;
     color: red;
@@ -640,7 +691,6 @@ input.form-control:focus, select.form-control:focus {
     transition: all 0.3s ease;
     text-decoration: none;
 }
-
 .custom-btn02 {
     background-color: #f4f4f4;
     color: purple;
@@ -652,31 +702,25 @@ input.form-control:focus, select.form-control:focus {
     transition: all 0.3s ease;
     text-decoration: none;
 }
-
 .custom-btn:hover {
     background-color: #333;
-    color:white;
+    color: white;
     border-color: #333;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
-
 .modal-backdrop.show {
-    backdrop-filter: blur(100px); /* Blurre le fond */
-    background-color: rgba(0, 0, 0, 0.7); /* Fond noir semi-transparent */
+    backdrop-filter: blur(100px);
+    background-color: rgba(0, 0, 0, 0.7);
 }
-
 .carousel-item img {
     transition: transform 0.3s ease-in-out;
 }
-
 .carousel-inner img {
-    object-fit: contain; /* Garder l'image dans le carrousel sans déformation */
+    object-fit: contain;
 }
 .navbar-toggler {
-
-    border: 2px solid #fff; /* Modifier la bordure */
+    border: 1px solid #fff;
 }
 .navbar-toggler-icon {
-    background-color: #fff; /* Changer la couleur de l'icône */
+    background-color: #fff;
 }

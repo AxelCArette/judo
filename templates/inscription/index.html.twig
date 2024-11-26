@@ -19,8 +19,16 @@
 {% block title %}Inscription | Judo Club Isbergues{% endblock %}
 
 {% block body %}
-   <div class="container mt-5" data-aos="fade-up" data-aos-duration="1000">
-    <h1 class="text-center mb-4" data-aos="fade-down" data-aos-duration="1500">Inscription sur le site</h1>
+<div class="container mt-5" data-aos="fade-up" data-aos-duration="1000">
+    <h1 class="text-center mb-4" data-aos="fade-down" data-aos-duration="1500">Inscription sur le site du judo club d'Isbergues</h1>
+    <div class="row justify-content-center">
+    <div class="col-md-10">
+        <p class="text-center lead" data-aos="fade-up" data-aos-duration="1200">
+          Inscrivez-vous pour créer votre profil personnalisé, suivre vos progrès et rester connecté avec le judo club d'Isbergues !
+        </p>
+    </div>
+</div>
+
 
     {% for message in app.session.flashbag().get('error') %}
         <div class="alert alert-danger" data-aos="fade-in" data-aos-duration="1000">
