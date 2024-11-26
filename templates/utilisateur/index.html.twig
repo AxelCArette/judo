@@ -18,21 +18,14 @@
 {% block title %}Profil de {{ prenom }}{% endblock %}
 
 {% block body %}
-
 <div class="profil-container">
-    <div class="row justify-content-center align-items-start g-4"> <!-- Alignement vertical et espacement -->
-
-        <div class="col-1"></div>
-
-    
-        <!-- Carte de profil -->
-        <div class="col-5">
-            <div class="profil-card {{ grade|replace({' ': ''}) }} mb-6"> <!-- Ajout d'une marge au bas de la carte -->
+    <div class="row justify-content-center align-items-start g-4"> 
+        <div class="col-12 col-md-5">
+            <div class="profil-card {{ grade|replace({' ': ''}) }} mb-4">
                 <h3 class="profil-name">{{ prenom }}</h3>
                 <div class="profil-photo">
                     {% if photoProfil %}
-                        <div class="border-layer"></div>
-
+                        
                         <img src="{{ asset(photoProfil) }}" alt="Photo de profil" class="profil-img" />
                     {% else %}
                         <p>Aucune photo de profil</p>
@@ -51,11 +44,8 @@
             </div>
         </div>
 
-        <div class="col-1"></div>
-        
-        <div class="col-5">
-        
-            <div class="profil-update-section mb-4">
+        <div class="col-12 col-md-5">
+            <div class="profil-update-section mb-3">
                 <h3>Mettre à jour votre profil</h3>
                 {{ form_start(form) }}
                     <div class="form-group mb-3">
@@ -69,16 +59,14 @@
                     </div>
                     <button type="submit" class="custom-btn">Mettre à jour</button>
                 {{ form_end(form) }}
-        </div>
+            </div>
             
-            <a href="{{ path('app_utilisateur_changer_mdp') }}" class="profil-update-section  btn btn-light custom-btn">Modifier le mot de passe</a>
+            <a href="{{ path('app_utilisateur_changer_mdp') }}" class="profil-update-section btn btn-light custom-btn">Modifier le mot de passe</a>
             {% if is_granted('ROLE_ADMIN') %}
-                <a href="{{ path('admin') }}" class="profil-update-section  btn btn-light custom-btn">Accéder à la section admin</a>
+                <a href="{{ path('admin') }}" class="profil-update-section btn btn-light custom-btn">Accéder à la section admin</a>
             {% endif %}
         </div>
-
     </div>
 </div>
-
 
 {% endblock %}

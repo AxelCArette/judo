@@ -15,15 +15,27 @@
 <meta name="twitter:image" content="{{ asset('asset/img/logo.jpg') }}">
 {% endblock %}
 
+
 {% block title %}Horaires, tarifs, géolocalisation et Déclaration sous préfecture| Judo Club d'Isbergues{% endblock %}
 
+
+
 {% block body %}
+
+<style>
+@media (max-width: 768px) {
+    [data-aos] {
+        transform: none !important;
+        opacity: 1 !important;
+        transition: none !important;
+    }
+}
+</style>
 
 <div class="container mt-5">
     <h2 class="text-center mb-5" data-aos="fade-up" data-aos-duration="1000">Horaires, tarifs et géolocalisation.</h2>
     <div class="row justify-content-center mb-4">
-    <div class="row justify-content-center mb-4">
-    <div class="col-md-10">
+    <div class="col-12 col-md-10">
         <p class="text-center lead" data-aos="fade-up" data-aos-duration="1200">
             Découvrez toutes les informations nécessaires pour participer à nos activités : <br>
              Horaires des cours, tarifs et localisation du club. <br>
@@ -31,7 +43,7 @@
         </p>
     </div>
 </div>
-        <div class="col-md-10" data-aos="fade-left" data-aos-duration="1000">
+        <div class="col-12 col-md-10" data-aos="fade-left" data-aos-duration="1000">
             <div class="card shadow-sm">
                 <div class="card-header bg-primary text-white text-center">
                     <h3 class="mb-0">Horaires des Cours</h3>
@@ -83,7 +95,7 @@
 
     <!-- Section Tarifs -->
     <div class="row justify-content-center mb-4">
-        <div class="col-md-10" data-aos="fade-right" data-aos-duration="1000">
+        <div class="col-12 col-md-10" data-aos="fade-right" data-aos-duration="1000">
             <div class="card shadow-sm">
                 <div class="card-header bg-warning text-white text-center">
                     <h3 class="mb-0">Tarifs</h3>
@@ -104,7 +116,7 @@
 
     <!-- Section Adresse et Géolocalisation -->
     <div class="row justify-content-center mb-4">
-        <div class="col-md-10" data-aos="fade-right" data-aos-duration="1000">
+        <div class="col-12 col-md-10" data-aos="fade-right" data-aos-duration="1000">
             <div class="card shadow-sm">
                 <div class="card-header bg-success text-white text-center">
                     <h3 class="mb-0">Adresse et Géolocalisation</h3>
@@ -129,7 +141,7 @@
 
     <!-- Section Résumé et Label Bronze -->
 <div class="row justify-content-center mb-4">
-    <div class="col-md-10" data-aos="fade-up" data-aos-duration="1000">
+    <div class="col-12 col-md-10" data-aos="fade-up" data-aos-duration="1000">
         <div class="card shadow-sm">
             <div class="card-header bg-secondary text-white text-center">
                 <h3 class="mb-0">Résumé et Label</h3>
@@ -157,7 +169,7 @@
 
     <!-- Section Déclaration sous Préfecture -->
 <div class="row justify-content-center mb-4">
-    <div class="col-md-10" data-aos="fade-left" data-aos-duration="1000">
+    <div class="col-12 col-md-10" data-aos="fade-left" data-aos-duration="1000">
         <div class="card shadow-sm">
             <div class="card-header bg-info text-white text-center">
                 <h3 class="mb-0">Déclaration sous-préfecture</h3>

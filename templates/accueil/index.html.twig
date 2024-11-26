@@ -19,6 +19,15 @@
 {% block title %}Accueil | Judo Club Isbergues{% endblock %}
 
 {% block body %}
+<style>
+@media (max-width: 768px) {
+    [data-aos] {
+        transform: none !important;
+        opacity: 1 !important;
+        transition: none !important;
+    }
+}
+</style>
     <div class="banner">
         <img src="{{ asset('asset/img/bannierejudo01.jpeg') }}" alt="Bannière Judo" class="banner-image">
     </div>

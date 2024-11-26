@@ -132,7 +132,6 @@
     transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
-/* Bordures pour effet de cadre en profondeur */
 .profil-photo .border-layer {
     position: absolute;
     border: 3px solid rgba(255, 255, 255, 0.6);
@@ -170,26 +169,41 @@
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.4);
 }
 
-
 .profil-card {
-
-    width: 500px;
-    /* Largeur fixée */
-    height: 700px;
-    /* Hauteur augmentée pour rendre la carte plus haute */
-    padding: 40px;
-    /* Augmenter l'espacement intérieur pour l'adapter à la nouvelle hauteur */
+    width: 100%;
+    /* Largeur adaptative pour petits écrans */
+    max-width: 600px;
+    /* Largeur maximale pour les grands écrans */
+    margin: 0 auto;
+    /* Centre la carte */
+    padding: 20px;
+    /* Espacement interne */
     border-radius: 15px;
     /* Coins arrondis */
     color: black;
-    /* Texte en noir */
+    /* Couleur du texte */
     overflow: hidden;
+    /* Cache le débordement */
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3));
+    /* Gradient léger */
     background-size: 200% 200%;
-    /* Taille du fond ajustée pour le mouvement circulaire */
+    /* Taille du gradient pour l'animation */
     animation: gradientMove 40s ease-in-out infinite;
-    /* Animation du mouvement du dégradé plus lente */
+    /* Animation fluide */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    /* Ombre subtile */
 }
+
+/* Ajustements spécifiques aux petits écrans */
+@media (max-width: 768px) {
+    .profil-card {
+        padding: 15px;
+        /* Moins de padding sur mobile */
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        /* Ombre plus légère */
+    }
+}
+
 
 .profil-description,
 .profil-grade,
@@ -333,17 +347,52 @@
     animation: gradientMove 6s ease infinite;
 }
 
-/* Style pour la photo de profil */
 .profil-photo img {
-    width: 100%;
-
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
 }
+
 
 .profil-info {
     margin-top: 15px;
     text-align: center;
     /* Alignement du texte de la description */
 }
+
+/* Pour écrans de moins de 768px */
+@media (max-width: 768px) {
+    .profil-card {
+        width: 100%;
+        /* Occupe toute la largeur */
+        height: auto;
+        /* S'adapte au contenu */
+    }
+
+    .profil-photo img {
+        width: 90%;
+        /* Ajuste la taille de l'image */
+        margin: 0 auto;
+        /* Centre sur l'écran */
+    }
+
+    .profil-name {
+        font-size: 24px;
+        /* Réduit légèrement la taille */
+    }
+
+    .profil-description {
+        font-size: 14px;
+        /* Texte plus petit pour mobile */
+    }
+
+    .custom-btn {
+        font-size: 14px;
+        /* Réduit les boutons */
+        padding: 10px;
+    }
+}
+
 
 .profil-name {
     font-size: 30px;
@@ -371,6 +420,7 @@
     border: 1px solid #ccc;
     border-radius: 10px;
     background-color: #fafafa;
+    margin-top: 30px;
 }
 
 .profil-update-section h3 {
@@ -379,20 +429,7 @@
     margin-bottom: 20px;
 }
 
-.profil-card {
-    position: relative;
-    width: 500px;
-    /* Largeur fixée */
-    height: 700px;
-    /* Hauteur augmentée */
-    padding: 40px;
-    border-radius: 15px;
-    color: black;
-    overflow: hidden;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3));
-    /* Gradient de fond avec transparence */
-}
+
 
 /* Image de profil */
 
@@ -432,16 +469,10 @@
     color: black;
 }
 
-.profil-update-section {
-    margin-top: 30px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background-color: #fafafa;
-}
 .profil-update-section .form-row {
     margin-bottom: 15px;
 }
+
 input.form-control:focus,
 select.form-control:focus {
     border-color: #007bff;
@@ -490,10 +521,9 @@ select.form-control:focus {
     margin-right: 5px;
     flex-direction: column;
     gap: 30px;
-    /* Espace vertical entre les éléments */
 }
 
-/* Logo du sponsor */
+
 .sponsor-logo img {
     max-width: 100%;
     max-height: 150px;
@@ -549,6 +579,7 @@ select.form-control:focus {
     gap: 30px;
 }
 
+/* Section générale */
 .activities,
 .club-values,
 .coach {
@@ -556,6 +587,8 @@ select.form-control:focus {
     align-items: center;
     gap: 30px;
     padding: 50px 0;
+    flex-wrap: wrap;
+    /* Permet de mieux gérer le wrapping en petits écrans */
 }
 
 /* Contenu texte dans chaque section */
@@ -576,6 +609,43 @@ select.form-control:focus {
     height: auto;
     border-radius: 8px;
 }
+
+/* Ajustements pour les petits écrans */
+@media (max-width: 767px) {
+
+    .activities,
+    .club-values,
+    .coach {
+        flex-direction: column;
+        /* Les sections deviennent verticales sur petits écrans */
+        gap: 20px;
+    }
+
+    .activities-content,
+    .club-values-content,
+    .coach-content {
+        max-width: 100%;
+        /* Le texte prend toute la largeur disponible */
+        padding: 15px;
+    }
+
+    .activity-image,
+    .club-image,
+    .coach-image {
+        max-width: 100%;
+        /* Les images ne dépassent pas la largeur de leur colonne */
+    }
+
+    /* Optionnel: cacher certaines images dans certaines sections */
+    .activities-content img,
+    .club-values-content img,
+    .coach-content img {
+        display: none;
+        /* cacher les images sur les écrans très petits si nécessaire */
+    }
+}
+
+
 
 /* Ajouter des animations AOS si nécessaire */
 [data-aos="fade-left"],
@@ -636,16 +706,19 @@ select.form-control:focus {
 .privacy-policy p {
     margin-bottom: 1em;
 }
+
 .privacy-policy ul {
     list-style-type: none;
     padding-left: 0;
     margin-bottom: 1.5em;
 }
+
 .privacy-policy ul li {
     padding-left: 20px;
     position: relative;
     margin-bottom: 0.8em;
 }
+
 .privacy-policy ul li::before {
     content: '•';
     color: #2b3a42;
@@ -680,6 +753,7 @@ select.form-control:focus {
     border-color: #333;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
 .custom-btn01 {
     background-color: #f4f4f4;
     color: red;
@@ -691,6 +765,7 @@ select.form-control:focus {
     transition: all 0.3s ease;
     text-decoration: none;
 }
+
 .custom-btn02 {
     background-color: #f4f4f4;
     color: purple;
@@ -702,25 +777,31 @@ select.form-control:focus {
     transition: all 0.3s ease;
     text-decoration: none;
 }
+
 .custom-btn:hover {
     background-color: #333;
     color: white;
     border-color: #333;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
 .modal-backdrop.show {
     backdrop-filter: blur(100px);
     background-color: rgba(0, 0, 0, 0.7);
 }
+
 .carousel-item img {
     transition: transform 0.3s ease-in-out;
 }
+
 .carousel-inner img {
     object-fit: contain;
 }
+
 .navbar-toggler {
     border: 1px solid #fff;
 }
+
 .navbar-toggler-icon {
     background-color: #fff;
 }
