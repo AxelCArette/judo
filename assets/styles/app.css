@@ -673,3 +673,10 @@ input.form-control:focus, select.form-control:focus {
 .carousel-inner img {
     object-fit: contain; /* Garder l'image dans le carrousel sans déformation */
 }
+.navbar-toggler {
+
+    border: 2px solid #fff; /* Modifier la bordure */
+}
+.navbar-toggler-icon {
+    background-color: #fff; /* Changer la couleur de l'icône */
+}
