@@ -19,9 +19,24 @@
 {% block title %}Page non trouvée{% endblock %}
 
 {% block body %}
-    <div class="container text-center mt-5">
-        <h1 class="display-1">404</h1>
-        <h2>Oups, cette page n'existe pas.</h2>
-        <p>Il semble que la page que vous cherchez n'ait pas pu être trouvée. Vous pouvez revenir à la <a href="{{ path('app_accueil') }}">page d'accueil</a>.</p>
-    </div>
+<div class="container text-center mt-5">
+    <h1 class="display-1">404</h1>
+    <h2>Oups, cette page n'existe pas.</h2>
+    <p>Il semble que la page que vous cherchez n'ait pas pu être trouvée. Vous allez être redirigé vers la <a href="{{ path('app_accueil') }}">page d'accueil</a> dans <span id="timer">10</span> secondes.</p>
+</div>
+
+<script>
+    let countdown = 10;
+    const timerElement = document.getElementById('timer');
+    
+
+    setInterval(function() {
+        countdown--;
+        timerElement.textContent = countdown;
+        if (countdown <= 0) {
+            window.location.href = '{{ path('app_accueil') }}'; // Redirection vers la page d'accueil
+        }
+    }, 1000);
+</script>
+
 {% endblock %}

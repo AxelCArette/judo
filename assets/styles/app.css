@@ -83,27 +83,21 @@
 .navbar-custom {
     display: flex;
     justify-content: center;
-    /* Centre horizontalement */
     align-items: center;
-    /* Centre verticalement */
 }
 
 .navbar-nav {
     display: flex;
     justify-content: center;
-    /* Centre horizontalement */
     align-items: center;
-    /* Centre verticalement */
 }
 
 .navbar-brand {
     margin-right: 50px;
-    /* Ajouter un espacement entre l'image et les éléments du menu */
 }
 
 .nav-item {
     margin: 0 15px;
-    /* Ajouter un espacement entre les éléments du menu */
 }
 
 .navbar-brand img {
@@ -115,7 +109,6 @@
     width: 100%;
     height: auto;
     perspective: 1000px;
-    /* Perspective pour effet 3D */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -265,6 +258,11 @@
     background: linear-gradient(45deg, #ffe600, #ff6200, #ffb300, #ff9800);
     background-size: 300% 300%;
     animation: gradientMove 6s ease infinite;
+}
+
+.cardbureau {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
 .profil-card.Orange {
@@ -429,39 +427,25 @@
     margin-bottom: 20px;
 }
 
-
-
-/* Image de profil */
-
-
-/* Section de texte avec fond flouté */
 .profil-info {
     position: relative;
     margin-top: 15px;
     padding: 15px;
     background: rgba(255, 255, 255, 0.5);
-    /* Fond semi-transparent pour l'effet flou */
     border-radius: 10px;
     backdrop-filter: blur(5px);
-    /* Flou du fond */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .profil-grade {
     font-size: 20px;
-    /* Plus grand pour le nom */
     background: linear-gradient(#f0f0f0, #CBCBCB);
     padding: 5px 10px;
-    /* Ajuste l'espacement autour du texte */
     border-radius: 5px;
-    /* Coins arrondis pour un effet esthétique */
     text-align: center;
     color: black;
-    /* Couleur du texte */
     font-weight: bold;
-    /* Style en gras */
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    /* Ombre subtile */
 }
 
 .profil-description {
@@ -679,7 +663,6 @@ select.form-control:focus {
     margin: 0 auto;
     padding: 20px;
     background-color: #f9f9f9;
-    /* Fond doux pour le conteneur */
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -800,6 +783,9 @@ select.form-control:focus {
 
 .navbar-toggler {
     border: 1px solid #fff;
+    position: absolute;
+    right: 25px;
+    top: 25px;
 }
 
 .navbar-toggler-icon {
