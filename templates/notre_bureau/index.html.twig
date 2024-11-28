@@ -16,10 +16,10 @@
 {% endblock %}
 
 
-{% block title %}Le Bureau | Judo Club D'isbergues {% endblock %}
+{% block title %}Notre équipe | Judo Club D'isbergues {% endblock %}
 {% block body %}
 	<div class="container mt-5">
-		<h2 class="text-center mb-4">Notre Bureau</h2>
+		<h2 class="text-center mb-4">Notre équipe.</h2>
 		 <p class="text-center mb-4" data-aos="fade-up" data-aos-duration="1200">
         Découvrez les personnes qui s'investissent quotidiennement pour faire vivre le Judo Club d'Isbergues. <br> Du président au photographe en passant par le développeur web, chaque membre joue un rôle essentiel pour guider, soutenir et promouvoir notre club.
     </p>
@@ -33,6 +33,20 @@
 						<h2 class="card-title">Président</h2>
 						<h3 class="card-title">Frédéric Couvreur</h3>
 						<p class="card-text">- Responsable de la vision et de la stratégie globale du club, il représente l'autorité principale. Le président supervise les activités, soutient les initiatives et veille à maintenir une organisation efficace et respectueuse des valeurs du judo.</p>
+					</div>
+					</div>
+				</div>
+			</div>
+
+				<div class="col-md-4 mb-4" data-aos="fade-up" data-aos-duration="1400">
+				<div class="card">
+				<div class="cardbureau">
+					<img src="{{ asset('asset/img/imgbureau/entraineur.jpg') }}" class="card-img-top" alt="Entraîneur">
+					<div class="card-body">
+						<h2 class="card-title">Entraîneur</h2>
+						<h3>Philippe Coubronne</h3>
+						<p class="card-text">- Chargé de l'encadrement sportif des membres, il transmet les techniques et valeurs du judo. Il prépare les judokas pour les compétitions et les aide à atteindre leurs objectifs personnels et sportifs.</p>
+						<a href="{{ path('app_philippe_coubronne') }}" class="btn btn-light custom-btn">Notre entraîneur</a>
 					</div>
 					</div>
 				</div>
@@ -52,37 +66,9 @@
 				</div>
 			</div>
 
-			<!-- Carte Entraîneur -->
-			<div class="col-md-4 mb-4" data-aos="fade-up" data-aos-duration="1400">
-				<div class="card">
-				<div class="cardbureau">
-					<img src="{{ asset('asset/img/imgbureau/entraineur.jpg') }}" class="card-img-top" alt="Entraîneur">
-					<div class="card-body">
-						<h2 class="card-title">Entraîneur</h2>
-						<h3>Philippe Coubronne</h3>
-						<p class="card-text">- Chargé de l'encadrement sportif des membres, il transmet les techniques et valeurs du judo. Il prépare les judokas pour les compétitions et les aide à atteindre leurs objectifs personnels et sportifs.</p>
-						<a href="{{ path('app_philippe_coubronne') }}" class="btn btn-light custom-btn">Notre entraîneur</a>
-					</div>
-					</div>
-				</div>
-			</div>
 
-			<!-- Carte Secrétaire -->
-			<div class="col-md-4 mb-4" data-aos="fade-up" data-aos-duration="1600">
 		
-				<div class="card">
-					<div class="cardbureau">
-					<img src="{{ asset('asset/img/imgbureau/secretary.jpg') }}" class="card-img-top" alt="Secrétaire">
-					<div class="card-body">
-						<h2 class="card-title">Secrétaire</h2>
-						<h3>Pascale Couvreur-Bizet</h3>
-						<p class="card-text">- S'occupe de la gestion administrative du club, assure la coordination des réunions et rédige les comptes rendus. Elle veille également à maintenir une communication fluide entre les membres.</p>
-					</div>
-					</div>
-				</div>
-			</div>
 
-			<!-- Carte Photographe -->
 			<div class="col-md-4 mb-4" data-aos="fade-up" data-aos-duration="1800">
 			
 				<div class="card">
@@ -114,7 +100,20 @@
 					</div>
 				</div>
 			</div>
+				<div class="col-md-4 mb-4" data-aos="fade-up" data-aos-duration="1600">
+		
+				<div class="card">
+					<div class="cardbureau">
+					<div class="card-body">
+						<h2 class="card-title">Secrétaire</h2>
+						<h3>Pascale Couvreur-Bizet</h3>
+						<p class="card-text">- S'occupe de la gestion administrative du club, assure la coordination des réunions et rédige les comptes rendus. Elle veille également à maintenir une communication fluide entre les membres.</p>
+					</div>
+					</div>
+				</div>
+			</div>
 		</div>
+		
 	</div>
 {% endblock %}
 
